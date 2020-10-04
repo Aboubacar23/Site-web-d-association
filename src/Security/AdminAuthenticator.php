@@ -71,7 +71,7 @@ class AdminAuthenticator extends AbstractFormLoginAuthenticator implements Passw
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Email could not be found.');
+            throw new CustomUserMessageAuthenticationException('Votre email est incorrect veillez inserer le bon !');
         }
 
         return $user;
