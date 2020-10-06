@@ -123,12 +123,18 @@ class MembreController extends AbstractController
      */
     public function delete(Request $request, Membre $membre): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$membre->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$membre->getId(), $request->request->get('_token'))) 
+        {
+            $document = $membre->getCv();
+            $photo = $membre->getPhoto();
+            unlink($this->getparameter('cv_directory').'/'.$document);
+            unlink($this->getparameter('photo_directory').'/'.$photo);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($membre);
             $entityManager->flush();
         }
-
+ 
         return $this->redirectToRoute('membre_index');
     }
 }

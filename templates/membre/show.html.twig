@@ -37,11 +37,11 @@
             </tr>
             <tr>
                 <th>Cv</th>
-                <td>{{ membre.Cv }}</td>
+                <td><a href="{{asset('cv_membres/' ~ membre.Cv)}}" >{{ membre.Cv }}</a></td>
             </tr>
             <tr>
                 <th>Photo</th>
-                <td>{{ membre.Photo }}</td>
+                <td><img src="{{asset('photo_membres/' ~ membre.Photo)}}" width="100px" height="70px;"></td>
             </tr>
         </tbody>
     </table>

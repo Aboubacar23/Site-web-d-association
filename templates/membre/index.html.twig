@@ -15,6 +15,7 @@
                 <th>Pays</th>
                 <th>Email</th>
                 <th>Poste</th>
+                <th>Niveau</th>
                 <th>Cv</th>
                 <th>Photo</th>
                 <th>actions</th>
@@ -30,8 +31,9 @@
                 <td>{{ membre.Pays }}</td>
                 <td>{{ membre.Email }}</td>
                 <td>{{ membre.Poste }}</td>
+                <td>{{ membre.niveau.Libelle }}</td>
                 <td><a href="{{asset('cv_membres/' ~ membre.Cv)}}" >{{ membre.Cv }}</a></td>
-                <td><a href="{{asset('photo_membres/' ~membre.Photo)}}">{{ membre.Photo }}</a></td>
+                <td><img src="{{asset('photo_membres/' ~ membre.Photo)}}" width="100px" height="70px;"></td>
                 <td>
                     <a href="{{ path('membre_show', {'id': membre.id}) }}">show</a>
                     <a href="{{ path('membre_edit', {'id': membre.id}) }}">edit</a>
