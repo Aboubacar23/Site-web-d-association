@@ -1,0 +1,26 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}TypeProjet{% endblock %}
+
+{% block body %}
+    <h1>TypeProjet</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_projet.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ type_projet.Nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_projet_index') }}">back to list</a>
+
+    <a href="{{ path('type_projet_edit', {'id': type_projet.id}) }}">edit</a>
+
+    {{ include('type_projet/_delete_form.html.twig') }}
+{% endblock %}

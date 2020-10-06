@@ -1,0 +1,35 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}TypeProjet index{% endblock %}
+
+{% block body %}
+    <h1>TypeProjet index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_projet in type_projets %}
+            <tr>
+                <td>{{ type_projet.id }}</td>
+                <td>{{ type_projet.Nom }}</td>
+                <td>
+                    <a href="{{ path('type_projet_show', {'id': type_projet.id}) }}">show</a>
+                    <a href="{{ path('type_projet_edit', {'id': type_projet.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_projet_new') }}">Create new</a>
+{% endblock %}

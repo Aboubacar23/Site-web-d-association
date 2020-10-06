@@ -69,11 +69,11 @@
               <span>Présentation</span>
               </a>
             <ul class="sub">
-              <li><a href="general.html">General</a></li>
-              <li><a href="buttons.html">Historique</a></li>
-              <li><a href="panels.html">Vision</a></li>
-              <li><a href="font_awesome.html">Projet</a></li>
-              <li><a href="font_awesome.html">Mission</a></li>
+              <li><a href="#">General</a></li>
+              <li><a href="{{path('historique_index')}}">Historique</a></li>
+              <li><a href="#">Vision</a></li>
+              <li><a href="{{path('projet_index')}}">Projet</a></li>
+              <li><a href="{{path('mission_index')}}">Mission</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -82,18 +82,29 @@
               <span>Membre</span>
               </a>
             <ul class="sub">
-              <li><a href="general.html">Bureau</a></li>
-              <li><a href="buttons.html">Membre</a></li>
+              <li><a href="{{path('membre_index')}}">Membre</a></li>
+              <li><a href="#">Bureau</a></li>
   
             </ul>
           </li>
          
           <li>
-            <a href="inbox.html">
+            <a href="#">
               <i class="fa fa-envelope"></i>
               <span>Contact </span>
               <span class="label label-theme pull-right mail-info">2</span>
               </a>
+          </li>
+           <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>Lien</span>
+              </a>
+            <ul class="sub">
+              <li><a href="{{path('niveau_index')}}">Niveau</a></li>
+              <li><a href="{{path('type_projet_index')}}">TypeProjet</a></li>
+  
+            </ul>
           </li>
         
           <li>

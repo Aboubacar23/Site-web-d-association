@@ -1,0 +1,26 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Mission{% endblock %}
+
+{% block body %}
+    <h1>Mission</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mission.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ mission.Libelle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('mission_index') }}">back to list</a>
+
+    <a href="{{ path('mission_edit', {'id': mission.id}) }}">edit</a>
+
+    {{ include('mission/_delete_form.html.twig') }}
+{% endblock %}

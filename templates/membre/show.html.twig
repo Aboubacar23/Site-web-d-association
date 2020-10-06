@@ -1,0 +1,54 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Membre{% endblock %}
+
+{% block body %}
+    <h1>Membre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ membre.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ membre.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ membre.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>Date_anniversaire</th>
+                <td>{{ membre.DateAnniversaire ? membre.DateAnniversaire|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Pays</th>
+                <td>{{ membre.Pays }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ membre.Email }}</td>
+            </tr>
+            <tr>
+                <th>Poste</th>
+                <td>{{ membre.Poste }}</td>
+            </tr>
+            <tr>
+                <th>Cv</th>
+                <td>{{ membre.Cv }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ membre.Photo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('membre_index') }}">back to list</a>
+
+    <a href="{{ path('membre_edit', {'id': membre.id}) }}">edit</a>
+
+    {{ include('membre/_delete_form.html.twig') }}
+{% endblock %}
