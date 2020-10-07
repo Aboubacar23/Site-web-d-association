@@ -3,9 +3,9 @@
 {% block title %}New Historique{% endblock %}
 
 {% block body %}
-    <h1>Create new Historique</h1>
+    <h1>Ajouter l'historique</h1>
 
     {{ include('historique/_form.html.twig') }}
 
-    <a href="{{ path('historique_index') }}">back to list</a>
+    <a href="{{ path('historique_index') }}"><span class="btn btn-info">Retour</span></a> 
 {% endblock %}

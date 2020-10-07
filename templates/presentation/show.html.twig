@@ -18,9 +18,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('presentation_index') }}">back to list</a>
+    <a href="{{ path('presentation_index') }}"><span class="btn btn-info">Retour</span></a>
 
-    <a href="{{ path('presentation_edit', {'id': presentation.id}) }}">edit</a>
+    <a href="{{ path('presentation_edit', {'id': presentation.id}) }}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 
     {{ include('presentation/_delete_form.html.twig') }}
 {% endblock %}

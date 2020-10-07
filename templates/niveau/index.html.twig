@@ -3,14 +3,14 @@
 {% block title %}Niveau index{% endblock %}
 
 {% block body %}
-    <h1>Niveau index</h1>
+    <h1>Les niveaus</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Libelle</th>
-                <th>actions</th>
+              
             </tr>
         </thead>
         <tbody>
@@ -19,17 +19,18 @@
                 <td>{{ niveau.id }}</td>
                 <td>{{ niveau.Libelle }}</td>
                 <td>
-                    <a href="{{ path('niveau_show', {'id': niveau.id}) }}">show</a>
-                    <a href="{{ path('niveau_edit', {'id': niveau.id}) }}">edit</a>
+                    <a href="{{ path('niveau_show', {'id': niveau.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                <td> <a href="{{ path('niveau_edit', {'id': niveau.id}) }}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 </td>
+            </tr>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">la table est vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('niveau_new') }}">Create new</a>
+    <a href="{{ path('niveau_new') }}" class="btn btn-success">Ajouter un nouveau</a>
 {% endblock %}

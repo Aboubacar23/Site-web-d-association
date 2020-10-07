@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Edit Projet</h1>
 
-    {{ include('projet/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('projet/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('projet_index') }}">back to list</a>
+    <a href="{{ path('projet_index') }}"><span class="btn btn-info">Retour</span></a>
 
     {{ include('projet/_delete_form.html.twig') }}
 {% endblock %}

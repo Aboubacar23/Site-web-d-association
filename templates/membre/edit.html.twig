@@ -3,11 +3,11 @@
 {% block title %}Edit Membre{% endblock %}
 
 {% block body %}
-    <h1>Edit Membre</h1>
+    <h1>Modifier Membre</h1>
 
-    {{ include('membre/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('membre/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('membre_index') }}">back to list</a>
+    <a href="{{ path('membre_index') }}"><span class="btn btn-info">Retour</span></a>
 
     {{ include('membre/_delete_form.html.twig') }}
 {% endblock %}

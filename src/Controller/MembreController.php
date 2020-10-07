@@ -4,11 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Membre;
 use App\Form\MembreType;
-use App\Repository\MembreRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/membre")
@@ -18,10 +18,22 @@ class MembreController extends AbstractController
     /**
      * @Route("/", name="membre_index", methods={"GET"})
      */
-    public function index(MembreRepository $membreRepository): Response
+    public function index(Request $request,PaginatorInterface $paginatorInterface): Response
     {
+        $membre = new Membre();
+        $donnees = $this->getDoctrine()->getRepository(Membre::class)->findAll();
+        
+         $membre = $paginatorInterface->paginate(
+
+            $donnees, // les données de l'annonce
+            $request->query->getInt('page',1), // la page par defaut 1 
+            3 // nombre d'élement à afficher
+
+
+         );
+
         return $this->render('membre/index.html.twig', [
-            'membres' => $membreRepository->findAll(),
+            'membres' => $membre,
         ]);
     }
 

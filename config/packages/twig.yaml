@@ -1,2 +1,3 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+   # Paths: '%kernel.project_dir%/vendor/knplabs/knp_pagination_bundle/templates:KnpPaginator'

@@ -24,7 +24,7 @@
   <link href="{{asset('Template_user/css/style-responsive.css')}}" rel="stylesheet">
   <script src="{{asset('Template_user/lib/chart-master/Chart.js')}}"></script>
 
-</head>
+</head> 
 
 <body>
   <section id="container">
@@ -69,10 +69,9 @@
               <span>Présentation</span>
               </a>
             <ul class="sub">
-              <li><a href="#">General</a></li>
+              <li><a href={{path('presentation_index')}}>General</a></li>
               <li><a href="{{path('historique_index')}}">Historique</a></li>
               <li><a href="#">Vision</a></li>
-              <li><a href="{{path('projet_index')}}">Projet</a></li>
               <li><a href="{{path('mission_index')}}">Mission</a></li>
             </ul>
           </li>
@@ -87,7 +86,12 @@
   
             </ul>
           </li>
-         
+           <li>
+            <a href="{{path('projet_index')}}">
+              <i class="#"></i>
+              <span>Projet </span>
+              </a>
+          </li>
           <li>
             <a href="#">
               <i class="fa fa-envelope"></i>

@@ -3,7 +3,7 @@
 {% block title %}Membre index{% endblock %}
 
 {% block body %}
-    <h1>Membre index</h1>
+    <h1>la liste des membres</h1>
 
     <table class="table">
         <thead>
@@ -14,10 +14,9 @@
                 <th>Date_anniversaire</th>
                 <th>Pays</th>
                 <th>Email</th>
-                <th>Niveau</th>
                 <th>Cv</th>
                 <th>Photo</th>
-                <th>actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -29,21 +28,20 @@
                 <td>{{ membre.DateAnniversaire ? membre.DateAnniversaire|date('Y-m-d') : '' }}</td>
                 <td>{{ membre.Pays }}</td>
                 <td>{{ membre.Email }}</td>
-                <td>{{ membre.niveau.Libelle }}</td>
                 <td><a href="{{asset('cv_membres/' ~ membre.Cv)}}" >{{ membre.Cv }}</a></td>
                 <td><img src="{{asset('photo_membres/' ~ membre.Photo)}}" width="100px" height="70px;"></td>
-                <td>
-                    <a href="{{ path('membre_show', {'id': membre.id}) }}">show</a>
-                    <a href="{{ path('membre_edit', {'id': membre.id}) }}">edit</a>
+               <td>
+                    <a href="{{ path('membre_show', {'id': membre.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                   <td> <a href="{{ path('membre_edit', {'id': membre.id}) }}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="10">no records found</td>
+                <td colspan="10">la table est vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('membre_new') }}">Create new</a>
+        {{ knp_pagination_render( membres )}}
+    <a href="{{ path('membre_new') }}" class="btn btn-success">Ajouter</a>
 {% endblock %}
