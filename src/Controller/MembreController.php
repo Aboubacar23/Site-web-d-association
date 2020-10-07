@@ -84,7 +84,7 @@ class MembreController extends AbstractController
                  }
              }
              //injection des deux variables dans la table membre
-
+            $this->addFlash('success', 'le membre à été ajouter avec succes');
             $membre->setCv($newDocument);
             $membre->setPhoto($newPhoto);
             $entityManager = $this->getDoctrine()->getManager();
