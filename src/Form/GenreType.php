@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\TypeProjet;
+use App\Entity\Genre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TypeProjetType extends AbstractType
+class GenreType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -19,7 +19,7 @@ class TypeProjetType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => TypeProjet::class,
+            'data_class' => Genre::class,
         ]);
     }
 }

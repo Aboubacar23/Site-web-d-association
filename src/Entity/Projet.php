@@ -23,11 +23,6 @@ class Projet
     private $Nom;
 
     /**
-     * @ORM\ManyToOne(targetEntity=TypeProjet::class)
-     */
-    private $Type;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $Description;
@@ -36,6 +31,11 @@ class Projet
      * @ORM\Column(type="string", length=255)
      */
     private $Document;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Genre::class)
+     */
+    private $Type;
 
     public function getId(): ?int
     {
@@ -50,18 +50,6 @@ class Projet
     public function setNom(string $Nom): self
     {
         $this->Nom = $Nom;
-
-        return $this;
-    }
-
-    public function getType(): ?TypeProjet
-    {
-        return $this->Type;
-    }
-
-    public function setType(?TypeProjet $Type): self
-    {
-        $this->Type = $Type;
 
         return $this;
     }
@@ -86,6 +74,18 @@ class Projet
     public function setDocument(string $Document): self
     {
         $this->Document = $Document;
+
+        return $this;
+    }
+
+    public function getType(): ?Genre
+    {
+        return $this->Type;
+    }
+
+    public function setType(?Genre $Type): self
+    {
+        $this->Type = $Type;
 
         return $this;
     }

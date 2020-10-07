@@ -35,25 +35,26 @@ class ProjetController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $document = $form->get('Document')->getData();
+            
 
             //uploader un fichier pdf
-             if($document) 
+             if($document)
              {
                  $originalDocument =pathinfo($document->getClientOriginalName(),PATHINFO_FILENAME);
                  $documentName = $originalDocument;
                  $newDocument = $documentName.'.'.uniqid().'.'.$document->guessExtension();
                  try {
                      $document->move(
-                         $this->getParameter('projet_directory'),
+                         $this->getParameter('document_projet_directory'),
                          $newDocument
                      );
                  } catch (\Throwable $th) {
                      //throw $th;
                  }
              }
-
-            $projet->setDocument($newDocument);
+             $projet->setDocument($newDocument);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($projet);
             $entityManager->flush();
@@ -103,9 +104,11 @@ class ProjetController extends AbstractController
     public function delete(Request $request, Projet $projet): Response
     {
         if ($this->isCsrfTokenValid('delete'.$projet->getId(), $request->request->get('_token'))) {
+           
             $document = $projet->getDocument();
-            unlink($this->getparameter('projet_directory').'/'.$document);
-            
+            unlink($this->getparameter('document_projet_directory').'/'.$document);
+        
+           
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($projet);
             $entityManager->flush();

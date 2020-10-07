@@ -2,8 +2,8 @@
 
 namespace App\Form;
 
+use App\Entity\Genre; 
 use App\Entity\Projet;
-use App\Entity\TypeProjet;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -14,12 +14,12 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 class ProjetType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
-    { 
+    {
         $builder
             ->add('Nom')
             ->add('Description')
             ->add('Document',FileType::class,[
-                'label'=>'document (pdf file)', 
+                'label'=>'document projet (pdf file)',
                 'mapped'=>false,
                 'required'=>false,
                 'constraints'=>[
@@ -35,9 +35,8 @@ class ProjetType extends AbstractType
                 ]
             ])
             ->add('Type',EntityType::class,[
-                'class'=> TypeProjet::class,
-                'choice_label' => 'Nom'
-
+                'class'=> Genre::class,
+                'choice_label'=> 'Nom'
             ])
         ;
     }

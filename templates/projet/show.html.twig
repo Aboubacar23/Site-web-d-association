@@ -20,8 +20,12 @@
                 <td>{{ projet.Description }}</td>
             </tr>
             <tr>
+                <th>Type projet</th>
+                <td><td>{{ projet.type.Nom }}</td></td>
+            </tr>
+            <tr>
                 <th>Document</th>
-                 <td><a href="{{asset('projet_documents/' ~ projet.Document)}}" >{{ projet.Document }}</a></td>
+                <td><a href="{{asset('projet_documents/' ~ projet.Document)}}">{{ projet.Document }}</a></td>
             </tr>
         </tbody>
     </table>

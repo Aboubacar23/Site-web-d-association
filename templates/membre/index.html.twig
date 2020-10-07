@@ -14,7 +14,6 @@
                 <th>Date_anniversaire</th>
                 <th>Pays</th>
                 <th>Email</th>
-                <th>Poste</th>
                 <th>Niveau</th>
                 <th>Cv</th>
                 <th>Photo</th>
@@ -30,7 +29,6 @@
                 <td>{{ membre.DateAnniversaire ? membre.DateAnniversaire|date('Y-m-d') : '' }}</td>
                 <td>{{ membre.Pays }}</td>
                 <td>{{ membre.Email }}</td>
-                <td>{{ membre.Poste }}</td>
                 <td>{{ membre.niveau.Libelle }}</td>
                 <td><a href="{{asset('cv_membres/' ~ membre.Cv)}}" >{{ membre.Cv }}</a></td>
                 <td><img src="{{asset('photo_membres/' ~ membre.Photo)}}" width="100px" height="70px;"></td>

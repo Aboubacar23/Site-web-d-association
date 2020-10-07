@@ -11,18 +11,19 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Description</th>
-                <th>Document</th>
                 <th>Type Projet</th>
+                <th>Document</th>
                 <th>actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody> 
         {% for projet in projets %}
             <tr>
                 <td>{{ projet.id }}</td>
                 <td>{{ projet.Nom }}</td>
                 <td>{{ projet.Description }}</td>
-                <td><a href="{{asset('projet_documents/' ~ projet.Document)}}" >{{ projet.Document }}</a></td>
+                 <td>{{ projet.type.Nom }}</td>
+                <td><a href="{{asset('projet_documents/' ~ projet.Document)}}">{{ projet.Document }}</a></td>
                 <td>
                     <a href="{{ path('projet_show', {'id': projet.id}) }}">show</a>
                     <a href="{{ path('projet_edit', {'id': projet.id}) }}">edit</a>
