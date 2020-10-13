@@ -1,0 +1,52 @@
+{% extends 'base_membre.html.twig' %}
+
+{% block title %}users{% endblock %}
+
+{% block body %}
+
+<h1 class="element"> Membres </h1>
+
+      <br>
+      
+                
+        {% for membre in users %}
+             <div class="media post_item">
+                    <div>
+                        <img src="{{asset('photo_membres/' ~ membre.Photo)}}" 
+                        width="200px" height="150px;">
+                    </div>
+                    <br>
+                    <div class="media-body">
+                              
+                                 <h2>{{ membre.Nom }}</h2>
+                                 <h3>{{ membre.Prenom }}</h3>
+                                 <h3>{{ membre.Pays }}</h3>
+                                 <h3>{{ membre.Poste }}</h3>
+                              
+                              <p><em>Email :</em>{{ membre.Email }}  <a href="blog_details.html" class="all-btn">voir profil</a></p>
+                    </div>
+                </div>
+                 
+                <br>
+            
+               
+              {#
+                <td>{{ membre.DateAnniversaire ? membre.DateAnniversaire|date('Y-m-d') : '' }}</td>
+                <td><a href="{{asset('cv_membres/' ~ membre.Cv)}}" >{{ membre.Cv }}</a></td>
+               
+               <td>
+                    <a href="{{ path('membre_show', {'id': membre.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                </td>
+                #}
+           
+        {% else %}
+           
+        {% endfor %}
+       
+        
+       
+    <br>
+        {{ knp_pagination_render( users )}}
+
+
+{% endblock %}

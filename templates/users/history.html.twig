@@ -124,68 +124,49 @@
         <!-- Header End -->
     </header>
     <main>
-        <!--? slider Area Start-->
-        <div class="slider-area position-relative">
-            <div class="slider-active">
-                <!-- Single Slider -->
-                <div class="single-slider slider-height d-flex align-items-center">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-7 col-lg-9 col-md-8 col-sm-9">
-                                <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">AJVE <span>Guinée</span></h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.4s">Association des jeunes visionnaires et entrepreneurs de Guinée</p>
-                                    <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Learn More <i class="ti-arrow-right"></i></a>
-                                </div>
+    <div class="slider-area2 section-bg2" data-background="{{asset('Template_users/assets/img/1234.jpg')}}">
+            <div class="slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap hero-cap2">
+                                <h2>Historique</h2>
                             </div>
                         </div>
-                    </div>          
-                </div>
-                <!-- Single Slider -->
-                <div class="single-slider slider-height d-flex align-items-center">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-7 col-lg-9 col-md-8 col-sm-9">
-                                <div class="hero__caption">
-                                    <h1 data-animation="fadeInLeft" data-delay="0.2s">Invovation <span>Entreprendre</span></h1>
-                                    <p data-animation="fadeInLeft" data-delay="0.4s">Un projet, un But</p>
-                                    <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.7s">Learn More <i class="ti-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>          
+                    </div>
                 </div>
             </div>
-            <!-- Video icon -->
-            <div class="video-icon">
-                <a class="popup-video btn-icon" href="#" data-animation="bounceIn" data-delay=".4s"><i class="fas fa-play"></i></a>
-            </div>
-        </div>
-        <!-- slider Area End-->
-        <!--? About 1 Start-->
-        <section class="about-low-area section-padding40">
+    </div>
+    <section class="about-low-area section-padding30">
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-xl-6 col-lg-6 col-md-10">
                         <div class="about-caption mb-50">
                             <!-- Section Tittle -->
                             <div class="section-tittle mb-35">
-                                <span class="element">Historique</span>
-                                <h2>We have all your needs, from micro macro</h2>
+                                <span class="element">Histoire</span>
+                                <h2>AJVEG</h2>
                             </div>
-                            <p>We collect and analyze information about your general usage of the website, products, services, and courses. We might track your usage patterns to see what features of the website you commonly use, website traffic volume, frequency of visits, type and time of transactions, type of browser, browser language.</p>
+                            {% for historique in historys %}
+            
+                
+                              <p>{{ historique.Libelle }} </p>
+                
+            
+                             {% else %}
+                             {% endfor %}
                         </div>
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <div class="experience">
-                                    <span>454 m</span>
-                                    <p>Delivery Packages</p>
+                                    <span>Jeunes</span>
+                                    <p>Motivé</p>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <div class="experience">
-                                    <span>127</span>
-                                    <p>Countries Covered</p>
+                                    <span>Histoire</span>
+                                    <p>D'une nouvelle génération</p>
                                 </div>
                             </div>
                         </div>
@@ -193,67 +174,19 @@
                     <div class="col-xl-5 col-lg-6 col-md-9 offset-md-1 offset-sm-1">
                         <div class="about-right-cap">
                             <div class="about-right-img">
-                                <img src="{{asset('Template_users/assets/img/gallery/about1.png')}}" alt="">
+                                <img src="{{asset('Template_users/assets/img/histo_image.jpeg')}}" 
+                                 alt="" height="400px" width="100px">
                             </div>
                             <div class="img-cap">
-                                <span>20</span>
-                                <p>Years of experience</p>
+                                <span>Pays</span>
+                                <p>Guinée Conakry</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- About  End-->
-        <!--? Gallery Area Start -->
-        <div class="gallery-area">
-            <div class="container-fluid p-0 fix">
-                <div class="row no-gutters">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-gallery text-center">
-                            <div class="gallery-img" style="background-image: url({{asset('Template_users/assets/img/gallery/gallery1.png);')}}'"></div>
-                            <div class="thumb-content-box">
-                                <div class="thumb-content">
-                                    <h3>Mechanical Engineering</h3>
-                                    <p>We collect and analyze information about your general usage of the website, products, services.</p>
-                                    <a href="services.html">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-gallery no-margin text-center">
-                            <div class="gallery-img" style="background-image: url({{asset('Template_users/assets/img/gallery/gallery2.png);')}}'"></div>
-                            <div class="thumb-content-box">
-                                <div class="thumb-content">
-                                    <h3>Mechanical Engineering</h3>
-                                    <p>We collect and analyze information about your general usage of the website, products, services.</p>
-                                    <a href="services.html">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-gallery text-center">
-                            <div class="gallery-img" style="background-image: url({{asset('Template_users/assets/img/gallery/gallery3.png);')}}'"></div>
-                            <div class="thumb-content-box">
-                                <div class="thumb-content">
-                                    <h3>Mechanical Engineering</h3>
-                                    <p>We collect and analyze information about your general usage of the website, products, services.</p>
-                                    <a href="services.html">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Gallery Area End -->
-        <!--? Categories Area Start -->
-        
-        <!-- Want To work End 2-->
-    </main>
-    <footer>
+<footer>
         <!-- Footer Start-->
         <div class="footer-area footer-padding">
             <div class="container">
@@ -412,3 +345,6 @@
     
     </body>
 </html>
+
+   
+
