@@ -64,7 +64,7 @@
                         <div class="row align-items-center">
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
-                                <div class="logo">
+                                <div class="logo"> 
                                     <a href="index.html"><img src="{{asset('Template_users/assets/img/logo/123.jpg')}}" 
                                     alt=""  width="150px" height="80px"></a>
                                 </div>
@@ -76,23 +76,22 @@
                                         <nav> 
                                             <ul id="navigation">                                                                                          
                                                 <li><a href="{{path('index')}}">Accueil</a></li>
-                                                <li><a href="#">Presentation</a>
+                                                <li class="active"><a href="#">Presentation</a>
                                                     <ul class="submenu">
                                                         <li><a href="#">Général</a></li>
                                                         <li><a href="{{path('user_history')}}">Historique</a></li>
                                                         <li><a href="{{asset('vision')}}">Objectifs</a></li>
-                                                      
                                                     </ul>
                                                 </li>
-                                                  <li class="active"><a href="#">Membre</a>
+                                                  <li><a href="#">Membre</a>
                                                     <ul class="submenu">
                                                         <li><a href="{{path('users_membre')}}">Membres</a></li>
                                                         <li><a href="#">Bureau</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="services.html">Projet</a></li>
-                                                <li><a href="services.html">Partenaire</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="#">Projet</a></li>
+                                                <li><a href="#">Partenaire</a></li>
+                                                <li><a href="#">Contact</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -122,235 +121,135 @@
             </div>
         </div>
         <!-- Header End -->
-</header>
-    <!-- main -->
-<main>
- <div class="slider-area2 section-bg2" data-background="{{asset('Template_users/assets/img/123.jpeg')}}">
+    </header>
+ <main>
+        <!--? Hero Start -->
+        <div class="slider-area2 section-bg2" data-background="{{asset('Template_users/assets/img/hero/hero3.png')}}">
             <div class="slider-height2 d-flex align-items-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
-                            <div class="hero-cap hero-cap2 text-center">
-                                <h2>Membre</h2>
+                            <div class="hero-cap hero-cap2">
+                                <h2>Objectifs</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
-    <section class="blog_area single-post-area section-padding">
-         <div class="container">
-            <div class="row">
-                <div class="col-lg-1 posts-list">
-
-
-                </div>
-                 <div class="col-lg-6 posts-list">
-                        {% block body %}
-
-
-                        {% endblock %}
-                    </div>
-                    <div class="col-lg-4">
-                         <div class="blog_right_sidebar">
-                  
-                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title" style="color: #2d2d2d;">Category</h4>
-                        <ul class="list cat-list">
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Resaurant food</p>
-                                 <p>(37)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Travel news</p>
-                                 <p>(10)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Modern technology</p>
-                                 <p>(03)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Product</p>
-                                 <p>(11)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Inspiration</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Health Care</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                        </ul>
-                     </aside>
-                    
-                     <aside class="single_sidebar_widget tag_cloud_widget">
-                        <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
-                        <ul class="list">
-                           <li>
-                              <a href="#">project</a>
-                           </li>
-                           <li>
-                              <a href="#">love</a>
-                           </li>
-                           <li>
-                              <a href="#">technology</a>
-                           </li>
-                           <li>
-                              <a href="#">travel</a>
-                           </li>
-                           <li>
-                              <a href="#">restaurant</a>
-                           </li>
-                           <li>
-                              <a href="#">life style</a>
-                           </li>
-                           <li>
-                              <a href="#">design</a>
-                           </li>
-                           <li>
-                              <a href="#">illustration</a>
-                           </li>
-                        </ul>
-                     </aside>                    
-                </div>
-             </div>
         </div>
-    </section>
-    <div class="whole-wrap">
-		<div class="container box_1170">
-    	    <div class="section-top-border">
-					<h3 class="mb-30">Drapeaux des pays </h3>
-					<div class="progress-table-wrap">
-						<div class="progress-table">
-							<div class="table-head">
-								<div class="serial">Numéro</div>
-								<div class="country">Pays</div>
-								<div class="visit">Code </div>
-								<div class="percentage">Percentages</div>
-							</div>
-                            <div class="table-row">
-								<div class="serial">01</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f1.jpg')}}" alt="flag">Guinée-Conakry</div>
-								<div class="visit">+224</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-1" role="progressbar" style="width: 80%"
-											aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">02</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f1.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-1" role="progressbar" style="width: 80%"
-											aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">03</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f2.jpg')}}" alt="flag">Etats-unis</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-2" role="progressbar" style="width: 30%"
-											aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">04</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f3.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-3" role="progressbar" style="width: 55%"
-											aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">04</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f4.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-4" role="progressbar" style="width: 60%"
-											aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">05</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f5.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-5" role="progressbar" style="width: 40%"
-											aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">06</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f6.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-6" role="progressbar" style="width: 70%"
-											aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">07</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f7.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-7" role="progressbar" style="width: 30%"
-											aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">08</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f8.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-8" role="progressbar" style="width: 60%"
-											aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+        <!--? contenu vision objectifs et mission -->
+        <div class="categories-area section-padding30">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-8">
+                        <div class="section-tittle text-center mb-100">
+                            <span class="element">Objectifs</span>
+                            <h2>Association des jeunes visionnaires et entrepreneurs de Guinée</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-cat">
+                            <div class="cat-icon">
+                                <img src="{{asset('Template_users/assets/img/gallery/icon1.png')}}" alt="">
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Mission</a></h5>
+                                <p>Nos missions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-cat">
+                            <div class="cat-icon">
+                                <img src="{{asset('Template_users/assets/img/gallery/icon2.png')}}" alt="">
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Vision</a></h5>
+                                <p>Nos Visions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-cat">
+                            <div class="cat-icon">
+                                <img src="{{asset('Template_users/assets/img/gallery/icon3.png')}}" alt="">
+                            </div>
+                            <div class="cat-cap">
+                                <h5><a href="#">Objectifs</a></h5>
+                                <p>Nos Objectifs.</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
             </div>
-		</div>
-         </section>
-</main>
+        </div>
+        <!-- cat End -->
 
-     <!-- end main -->
+         <!-- Contact form Start -->
+        <div class="contact-form testimonial-area">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10">
+                        <div class="section-tittle text-center mb-100">
+                            <span class="element">Testimonial</span>
+                            <h2>Some amazing words from our clients</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-lg-6 col-md-12">
+                        <!-- Testimonial Start -->
+                        <div class="h1-testimonial-active">
+                            <!-- Single Testimonial -->
+                            <div class="single-testimonial">
+                                <div class="testimonial-caption">
+                                    <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through.</p>
+                                    <div class="rattiong-caption">
+                                        <span>- Micky Mouse,<span>Business Man</span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Testimonial -->
+                            <div class="single-testimonial">
+                                <div class="testimonial-caption">
+                                    <p>"Working in conjunction with humanitarian aid agencies, we have supported programmes to help alleviate human suffering through.</p>
+                                    <div class="rattiong-caption">
+                                        <span>- Micky Mouse,<span>Business Man</span> </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <!-- slider -->
+                        <div class="single-man-slider">
+                            <div class="man-slider-active">
+                                <div class="single-mam-img">
+                                    <img src="{{asset('Template_users/assets/img/gallery/man1.png')}}" alt="">
+                                </div>
+                                <div class="single-mam-img">
+                                    <img src="{{asset('Template_users/assets/img/gallery/man1.png')}}" alt="">
+                                </div>
+                                <div class="single-mam-img">
+                                    <img src="{{asset('Template_users/assets/img/gallery/man1.png')}}" alt="">
+                                </div>
+                                <div class="single-mam-img">
+                                    <img src="{{asset('Template_users/assets/img/gallery/man1.png')}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </main>
 
-<footer>
+    <footer>
         <!-- Footer Start-->
         <div class="footer-area footer-padding">
             <div class="container">
@@ -429,7 +328,7 @@
                     <div class="row d-flex justify-content-between align-items-center">
                         <div class="col-xl-9 col-lg-8">
                             <div class="footer-copy-right">
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                                 <p>Copyright ©2020 All rights reserved | admin <i class="fa fa-heart" aria-hidden="true"></i></p>
                             </div>
                         </div>
