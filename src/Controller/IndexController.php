@@ -53,13 +53,24 @@ class IndexController extends AbstractController
 
             $donnees, // les données de l'annonce
             $request->query->getInt('page',1), // la page par defaut 1 
-            4 // nombre d'élement à afficher
+            3 // nombre d'élement à afficher
 
 
          );
 
         return $this->render('users/users_membre.html.twig', [
             'users' => $membre,
+        ]);
+    }
+
+
+    /**
+     * @Route("/{id}/affiche", name="afficher_user_membre", methods={"GET"})
+     */
+    public function show(Membre $membre): Response
+    {
+        return $this->render('users/show_membre.html.twig', [
+            'membre' => $membre,
         ]);
     }
 

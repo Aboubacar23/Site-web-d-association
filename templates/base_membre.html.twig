@@ -124,8 +124,8 @@
         <!-- Header End -->
 </header>
     <!-- main -->
-<main>
- <div class="slider-area2 section-bg2" data-background="{{asset('Template_users/assets/img/123.jpeg')}}">
+    <main>
+         <div class="slider-area2 section-bg2" data-background="{{asset('Template_users/assets/img/123.jpeg')}}">
             <div class="slider-height2 d-flex align-items-center">
                 <div class="container">
                     <div class="row">
@@ -137,21 +137,63 @@
                     </div>
                 </div>
             </div>
-    </div>
-    <section class="blog_area single-post-area section-padding">
-         <div class="container">
-            <div class="row">
-                <div class="col-lg-1 posts-list">
+        </div>
+        <section class="blog_area single-post-area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-1 posts-list">
 
 
-                </div>
-                 <div class="col-lg-6 posts-list">
-                        {% block body %}
+                     </div>
+                    <div class="col-lg-8 posts-list">
+                        <h1 class="element"> Membres </h1>
 
+                      <br>
+                      <div class="media post_item">
+                        {% for membre in users %}
+                           
+                              <div class="container">
+                                <div class="cols">
+                                  <div class="col-md-3">
+                                      <div>
+                                        <img src="{{asset('photo_membres/' ~ membre.Photo)}}" 
+                                           width="200px" height="150px;">
+                                        </div>
+                                   </div>
+                                  <div class="col-md-6">
+                                    <div class="media-body">
+                                      <h2>{{ membre.Nom }}</h2>
+                                      <h3>{{ membre.Prenom }}</h3>
+                                      <p>{{ membre.Poste }}</p>
+                                      <a href="{{ path('membre_show', {'id': membre.id}) }}" class="all-btn">voir profil</a>
+                                    </div>
+                                  </div>
+                              </div>
+                          
+                          </div>
+                             {% else %}
+           
+                          {% endfor %}
+                    </div>           
+               
+              {#
+                <td>{{ membre.DateAnniversaire ? membre.DateAnniversaire|date('Y-m-d') : '' }}</td>
+                <td><a href="{{asset('cv_membres/' ~ membre.Cv)}}" >{{ membre.Cv }}</a></td>
+               
+               <td>
+                    <a href="{{ path('membre_show', {'id': membre.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                </td>
+                #}
+           
+              
+       
+        
+       
+               <br>
+               {{ knp_pagination_render( users )}}
 
-                        {% endblock %}
-                    </div>
-                    <div class="col-lg-4">
+              </div>
+                    <div class="col-lg-3">
                          <div class="blog_right_sidebar">
                   
                      <aside class="single_sidebar_widget post_category_widget">
@@ -229,123 +271,8 @@
              </div>
         </div>
     </section>
-    <div class="whole-wrap">
-		<div class="container box_1170">
-    	    <div class="section-top-border">
-					<h3 class="mb-30">Drapeaux des pays </h3>
-					<div class="progress-table-wrap">
-						<div class="progress-table">
-							<div class="table-head">
-								<div class="serial">Numéro</div>
-								<div class="country">Pays</div>
-								<div class="visit">Code </div>
-								<div class="percentage">Percentages</div>
-							</div>
-                            <div class="table-row">
-								<div class="serial">01</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f1.jpg')}}" alt="flag">Guinée-Conakry</div>
-								<div class="visit">+224</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-1" role="progressbar" style="width: 80%"
-											aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">02</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f1.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-1" role="progressbar" style="width: 80%"
-											aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">03</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f2.jpg')}}" alt="flag">Etats-unis</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-2" role="progressbar" style="width: 30%"
-											aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">04</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f3.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-3" role="progressbar" style="width: 55%"
-											aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">04</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f4.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-4" role="progressbar" style="width: 60%"
-											aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">05</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f5.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-5" role="progressbar" style="width: 40%"
-											aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">06</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f6.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-6" role="progressbar" style="width: 70%"
-											aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">07</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f7.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-7" role="progressbar" style="width: 30%"
-											aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="serial">08</div>
-								<div class="country"> <img src="{{asset('Template_users/assets/img/elements/f8.jpg')}}" alt="flag">Canada</div>
-								<div class="visit">645032</div>
-								<div class="percentage">
-									<div class="progress">
-										<div class="progress-bar color-8" role="progressbar" style="width: 60%"
-											aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
-		</div>
-         </section>
+    
+
 </main>
 
      <!-- end main -->

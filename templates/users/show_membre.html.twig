@@ -138,61 +138,38 @@
                 </div>
             </div>
         </div>
-        <section class="blog_area single-post-area section-padding">
+        <br>
+        <br>
+        <br>
+        <section class="blog_area">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-1 posts-list">
-
-
-                     </div>
-                    <div class="col-lg-8 posts-list">
-                        <h1 class="element"> Membres </h1>
-
-                      <br>
-                      <div class="media post_item">
-                        {% for membre in users %}
-                           
-                              <div class="container">
-                                <div class="cols">
-                                  <div class="col-md-3">
-                                      <div>
-                                        <img src="{{asset('photo_membres/' ~ membre.Photo)}}" 
-                                           width="130px" height="80px;">
-                                        </div>
-                                   </div>
-                                  <div class="col-md-6">
-                                    <div class="media-body">
-                                      <h3 style="color: #A9A9A9;">{{ membre.Nom }}</h3>
-                                      <h3 style="color: #A9A9A9;">{{ membre.Prenom }}</h3>
-                                      <h3 style="color: #00008B;">{{ membre.Poste }}</h3>
-                                      <p><a href="{{ path('afficher_user_membre', {'id': membre.id}) }}" class="all-btn">voir profil</a></p>
-                                    </div>
-                                  </div>
-                              </div>
-                          
-                          </div>
-                             {% else %}
-           
-                          {% endfor %}
-                    </div>           
-               
-              {#
-                <td>{{ membre.DateAnniversaire ? membre.DateAnniversaire|date('Y-m-d') : '' }}</td>
-                <td><a href="{{asset('cv_membres/' ~ membre.Cv)}}" >{{ membre.Cv }}</a></td>
-               
-               <td>
-                    <a href="{{ path('membre_show', {'id': membre.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a></td>
-                </td>
-                #}
-           
-              
-       
-        
-       
-               <br>
-               {{ knp_pagination_render( users )}}
-
-              </div>
+                    <div class="col-lg-8 mb-5 mb-lg-0">
+                        <div class="blog_left_sidebar">
+                            <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <img class="rounded-0" src="{{asset('photo_membres/' ~ membre.Photo)}}" 
+                                    height="300px;"  width="300;" alt="">
+                                    <a href="#" class="blog_item_date">
+                                        <h3>{{ membre.Nom }}</h3>
+                                        <p>{{ membre.Prenom }}</p>
+                                    </a>
+                                </div>
+                                <div class="blog_details">
+                                    <p class="d-inline-block">
+                                        <h4>Poste : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Poste }}</span></h4>
+                                        <h4>Pays : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Pays }}</span></h4>
+                                        <h4>Email : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Email }}</span></h4>
+                                        <h4>Date anniversaire : <span class="blog-head" style="color: #2d2d2d;">{{ membre.DateAnniversaire ? membre.DateAnniversaire|date('Y-m-d') : '' }}</span></h4>
+                                        <h4>Niveau : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Niveau.Libelle }}</span></h4>
+                                        <h4 class="blog-head"> Document cv: <span><a href="{{asset('cv_membres/' ~ membre.Cv)}}" style="color: blue;">{{ membre.Cv }}</a></span></h4>
+                                    </p>
+                                    <p>That dominion stars lights dominion divide years for fourth have don't stars is that
+                                        he earth it first without heaven in place seed it second morning saying.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
                     <div class="col-lg-3">
                          <div class="blog_right_sidebar">
                   
@@ -269,11 +246,11 @@
                      </aside>                    
                 </div>
              </div>
-        </div>
-    </section>
-    
-
-</main>
+         </div>
+          </div>
+        
+        </section>
+    </main>
 
      <!-- end main -->
 
