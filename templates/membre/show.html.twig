@@ -20,6 +20,10 @@
                 <td>{{ membre.Prenom }}</td>
             </tr>
             <tr>
+                <th>Telephone</th>
+                <td>{{ membre.Telephone}}</td>
+            </tr>
+            <tr>
                 <th>Date_anniversaire</th>
                 <td>{{ membre.DateAnniversaire ? membre.DateAnniversaire|date('Y-m-d') : '' }}</td>
             </tr>
@@ -42,6 +46,10 @@
             <tr>
                 <th>Photo</th>
                 <td><img src="{{asset('photo_membres/' ~ membre.Photo)}}" width="100px" height="70px;"></td>
+            </tr>
+            <tr>
+                <th>Profil</th>
+                <td>{{ membre.Profil }}</td>
             </tr>
         </tbody>
     </table>

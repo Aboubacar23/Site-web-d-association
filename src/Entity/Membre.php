@@ -62,6 +62,16 @@ class Membre
      */
     private $Niveau;
 
+    /**
+     * @ORM\Column(type="text",length=11777215)
+     */
+    private $Profil;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $Telephone;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +181,30 @@ class Membre
     public function setNiveau(?Niveau $Niveau): self
     {
         $this->Niveau = $Niveau;
+
+        return $this;
+    }
+
+    public function getProfil(): ?string
+    {
+        return $this->Profil;
+    }
+
+    public function setProfil(string $Profil): self
+    {
+        $this->Profil = $Profil;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?int
+    {
+        return $this->Telephone;
+    }
+
+    public function setTelephone(int $Telephone): self
+    {
+        $this->Telephone = $Telephone;
 
         return $this;
     }

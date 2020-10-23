@@ -78,7 +78,7 @@
                                                 <li><a href="{{path('index')}}">Accueil</a></li>
                                                 <li><a href="#">Presentation</a>
                                                     <ul class="submenu">
-                                                        <li><a href="#">Général</a></li>
+                                                        <li><a href="{{path('user_presentation')}}">Général</a></li>
                                                         <li><a href="{{path('user_history')}}">Historique</a></li>
                                                         <li><a href="{{asset('vision')}}">Objectifs</a></li>
                                                       
@@ -90,7 +90,7 @@
                                                         <li><a href="#">Bureau</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="services.html">Projet</a></li>
+                                                <li><a href="#">Projet</a></li>
                                                 <li><a href="services.html">Partenaire</a></li>
                                                 <li><a href="contact.html">Contact</a></li>
                                             </ul>
@@ -157,6 +157,7 @@
                                 </div>
                                 <div class="blog_details">
                                     <p class="d-inline-block">
+                                        <h4>Telephone : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Telephone }}</span></h4>
                                         <h4>Poste : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Poste }}</span></h4>
                                         <h4>Pays : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Pays }}</span></h4>
                                         <h4>Email : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Email }}</span></h4>
@@ -164,8 +165,7 @@
                                         <h4>Niveau : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Niveau.Libelle }}</span></h4>
                                         <h4 class="blog-head"> Document cv: <span><a href="{{asset('cv_membres/' ~ membre.Cv)}}" style="color: blue;">{{ membre.Cv }}</a></span></h4>
                                     </p>
-                                    <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                        he earth it first without heaven in place seed it second morning saying.</p>
+                                    <p><span class="blog-head" style="color: #2d2d2d;">{{ membre.Profil }}</span></p>
                                 </div>
                             </article>
                         </div>

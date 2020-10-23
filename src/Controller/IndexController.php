@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Membre;
 use App\Entity\Historique;
+use App\Entity\Presentation;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -73,5 +74,22 @@ class IndexController extends AbstractController
             'membre' => $membre,
         ]);
     }
+
+     /** 
+    *@Route("/presentationgeneral", name="user_presentation")
+    */ 
+    public function presentation():Response
+    {
+
+        $presentation = new Presentation();
+
+        $presentation =$this->getDoctrine()->getRepository(Presentation::class)->findAll();
+
+        return $this->render('users/presentation.html.twig',[
+            'presentations' => $presentation,
+        ]);
+        
+
+    } 
 
 }

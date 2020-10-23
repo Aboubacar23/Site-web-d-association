@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class MembreType extends AbstractType
 {
@@ -19,8 +20,12 @@ class MembreType extends AbstractType
             ->add('Nom')
             ->add('Prenom')
             ->add('Date_anniversaire')
+            ->add('telephone')
             ->add('Pays')
             ->add('Email')
+            ->add('Profil',TextareaType::class,[
+                'attr' => ['class' => 'tinymce'],
+            ])
             ->add('Poste')
             ->add('Cv',FileType::class,[
                 'label'=>'Cv (pdf file)',

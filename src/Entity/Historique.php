@@ -18,7 +18,7 @@ class Historique
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=11777215)
      */
     private $Libelle;
 
