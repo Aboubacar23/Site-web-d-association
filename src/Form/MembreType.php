@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Membre;
 use App\Entity\Niveau;
+use App\Entity\Universite;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -42,7 +43,7 @@ class MembreType extends AbstractType
                         
                     ])
                 ]
-            ])
+            ]) 
             ->add('Photo', FileType::class,[
                 'label'=>'Photo (image jpeg,jpg,png,)',
                 'mapped'=>false,
@@ -64,6 +65,10 @@ class MembreType extends AbstractType
             ->add('Niveau',EntityType::class,[
                 'class'=> Niveau::class,
                 'choice_label'=> 'Libelle'
+            ])
+            ->add('Universite',EntityType::class,[
+                'class'=> Universite::class,
+                'choice_label' => 'Nom'
             ])
         ;
     }

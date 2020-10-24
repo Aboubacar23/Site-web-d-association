@@ -1,0 +1,15 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Universite{% endblock %}
+
+{% block body %}
+    <h1>Modifier Universite</h1>
+
+    {{ include('universite/_form.html.twig', {'button_label': 'Update'}) }}
+    <br>
+    <br>
+    <a href="{{ path('universite_index') }}"><span class="btn btn-info">Retour</span></a>
+    <br>
+    <br>
+    {{ include('universite/_delete_form.html.twig') }}
+{% endblock %}

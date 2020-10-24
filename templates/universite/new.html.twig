@@ -1,0 +1,12 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}New Universite{% endblock %}
+
+{% block body %}
+    <h1>Ajouter l'universite</h1>
+
+    {{ include('universite/_form.html.twig') }}
+    <br>
+    <br>
+    <a href="{{ path('universite_index') }}"><span class="btn btn-info">Retour</span></a>
+{% endblock %}

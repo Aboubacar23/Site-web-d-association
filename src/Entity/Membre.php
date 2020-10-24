@@ -72,6 +72,11 @@ class Membre
      */
     private $Telephone;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Universite::class)
+     */
+    private $Universite;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -205,6 +210,18 @@ class Membre
     public function setTelephone(int $Telephone): self
     {
         $this->Telephone = $Telephone;
+
+        return $this;
+    }
+
+    public function getUniversite(): ?Universite
+    {
+        return $this->Universite;
+    }
+
+    public function setUniversite(?Universite $Universite): self
+    {
+        $this->Universite = $Universite;
 
         return $this;
     }

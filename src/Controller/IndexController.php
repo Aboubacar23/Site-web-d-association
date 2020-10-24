@@ -106,13 +106,23 @@ class IndexController extends AbstractController
 
             $donnees, // les données de l'annonce
             $request->query->getInt('page',1), // la page par defaut 1 
-            3 // nombre d'élement à afficher
+            5 // nombre d'élement à afficher
 
 
          );
 
         return $this->render('users/projet.html.twig', [
             'user_projet' => $projet,
+        ]);
+    }
+
+     /**
+     * @Route("/{id}/voir", name="voir_projet", methods={"GET"})
+     */
+    public function getProjetFindby(Projet $projet): Response
+    {
+        return $this->render('users/show_projet.html.twig', [
+            'projet' => $projet,
         ]);
     }
 

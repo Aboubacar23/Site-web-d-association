@@ -40,6 +40,14 @@
                 <td>{{ membre.Poste }}</td>
             </tr>
             <tr>
+                <th>Diplôme</th>
+                <td>{{ membre.Niveau.Libelle }}</td>
+            </tr>
+             <tr>
+                <th>Universite</th>
+                <td>{{ membre.Universite.Nom }}</td>
+            </tr>
+            <tr>
                 <th>Cv</th>
                 <td><a href="{{asset('cv_membres/' ~ membre.Cv)}}" >{{ membre.Cv }}</a></td>
             </tr>

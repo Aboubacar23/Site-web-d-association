@@ -84,13 +84,13 @@
                                                       
                                                     </ul>
                                                 </li>
-                                                  <li class="active"><a href="#">Membre</a>
+                                                  <li><a href="#">Membre</a>
                                                     <ul class="submenu">
                                                         <li><a href="{{path('users_membre')}}">Membres</a></li>
                                                         <li><a href="#">Bureau</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="{{path('users_projet')}}">Projet</a></li>
+                                                <li class="active"><a href="{{path('users_projet')}}">Projet</a></li>
                                                 <li><a href="">Partenaire</a></li>
                                                 <li><a href="contact.html">Contact</a></li>
                                             </ul>
@@ -125,13 +125,13 @@
 </header>
     <!-- main -->
     <main>
-         <div class="slider-area2 section-bg2" data-background="{{asset('Template_users/assets/img/123.jpeg')}}">
+          <div class="slider-area2 section-bg2" data-background="{{asset('Template_users/assets/img/hero/hero5.png')}}">
             <div class="slider-height2 d-flex align-items-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
-                            <div class="hero-cap hero-cap2 text-center">
-                                <h2>Membre</h2>
+                            <div class="hero-cap hero-cap2">
+                                <h2>Projets</h2>
                             </div>
                         </div>
                     </div>
@@ -146,27 +146,15 @@
                 <div class="row">
                     <div class="col-lg-8 mb-5 mb-lg-0">
                         <div class="blog_left_sidebar">
-                            <article class="blog_item">
-                                <div class="blog_item_img">
-                                    <img class="rounded-0" src="{{asset('photo_membres/' ~ membre.Photo)}}" 
-                                    height="300px;"  width="300;" alt="">
-                                    <a href="#" class="blog_item_date">
-                                        <h3>{{ membre.Nom }}</h3>
-                                        <p>{{ membre.Prenom }}</p>
-                                    </a>
-                                </div>
                                 <div class="blog_details">
                                     <p class="d-inline-block">
-                                        <h4>Telephone : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Telephone }}</span></h4>
-                                        <h4>Poste : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Poste }}</span></h4>
-                                        <h4>Pays : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Pays }}</span></h4>
-                                        <h4>Email : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Email }}</span></h4>
-                                        <h4>Date anniversaire : <span class="blog-head" style="color: #2d2d2d;">{{ membre.DateAnniversaire ? membre.DateAnniversaire|date('Y-m-d') : '' }}</span></h4>
-                                        <h4>Diplôme : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Niveau.Libelle }}</span></h4>
-                                        <h4>Universite : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Universite.nom }}</span></h4>
-                                        <h4 class="blog-head"> Document cv:      <span><a href="{{asset('cv_membres/' ~ membre.Cv)}}" style="color: blue;">{{ membre.Cv }}</a></span></h4>
+                                        <h4>Nom Projet : <span class="blog-head" style="color: #2d2d2d;">{{ projet.Nom }}</span></h4>
+                                        <h4>Date d'ajout : <span class="blog-head" style="color: #2d2d2d;">{{ projet.DateAjout ? projet.DateAjout|date('Y-m-d') }}</span></h4>
+                                        <h4>Date de creation : <span class="blog-head" style="color: #2d2d2d;">{{ projet.DateCreation ? projet.DateCreation|date('Y-m-d')  }}</span></h4>
+                                        <h4>Type : <span class="blog-head" style="color: #2d2d2d;">{{ projet.type.Nom }}</span></h4>
+                                        <h4 class="blog-head"> Document cv: <span><a href="{{asset('projet_documents/' ~ projet.Document)}}" style="color: blue;">{{ projet.Document}}</a></span></h4>
                                     </p>
-                                    <p><span class="blog-head" style="color: #2d2d2d;">{{ membre.Profil }}</span></p>
+                                    <p><span class="blog-head" style="color: #2d2d2d;">{{ projet.Description }}</span></p>
                                 </div>
                             </article>
                         </div>
