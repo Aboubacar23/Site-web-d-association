@@ -5,12 +5,14 @@
 {% block body %}
     <h1>La liste des projets</h1>
 
-    <table class="table">
+    <table class="table table-bordered table-hover table-primary">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th> Date d'ajout</th>
                 <th>Description</th>
+                <th>Date Creation</th>
                 <th>Type Projet</th>
                 <th>Document</th>
            
@@ -21,7 +23,9 @@
             <tr>
                 <td>{{ projet.id }}</td>
                 <td>{{ projet.Nom }}</td>
+                <td>{{ projet.DateAjout ? projet.DateAjout|date('Y-m-d') : '' }}</td>
                 <td>{{ projet.Description }}</td>
+                <td>{{ projet.DateCreation ? projet.DateCreation|date('Y-m-d') }}</td>
                  <td>{{ projet.type.Nom }}</td>
                 <td><a href="{{asset('projet_documents/' ~ projet.Document)}}">{{ projet.Document }}</a></td>
                 <td>

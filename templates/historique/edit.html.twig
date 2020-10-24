@@ -6,9 +6,9 @@
     <h1>Modifier l'historique</h1>
 
     {{ include('historique/_form.html.twig', {'button_label': 'Modifier'}) }}
-
+     <br>
     <a href="{{ path('historique_index') }}"><span class="btn btn-info">Retour</span></a>
-
+     <br>
     {{ include('historique/_delete_form.html.twig') }}
 {% endblock %}
  

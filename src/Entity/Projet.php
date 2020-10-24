@@ -37,6 +37,16 @@ class Projet
      */
     private $Type;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $DateAjout;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $DateCreation;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +96,30 @@ class Projet
     public function setType(?Genre $Type): self
     {
         $this->Type = $Type;
+
+        return $this;
+    }
+
+    public function getDateAjout(): ?\DateTimeInterface
+    {
+        return $this->DateAjout;
+    }
+
+    public function setDateAjout(\DateTimeInterface $DateAjout): self
+    {
+        $this->DateAjout = $DateAjout;
+
+        return $this;
+    }
+
+    public function getDateCreation(): ?\DateTimeInterface
+    {
+        return $this->DateCreation;
+    }
+
+    public function setDateCreation(\DateTimeInterface $DateCreation): self
+    {
+        $this->DateCreation = $DateCreation;
 
         return $this;
     }

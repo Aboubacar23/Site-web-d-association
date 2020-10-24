@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Membre;
+use App\Entity\Projet;
 use App\Entity\Historique;
 use App\Entity\Presentation;
 use Knp\Component\Pager\PaginatorInterface;
@@ -91,5 +92,29 @@ class IndexController extends AbstractController
         
 
     } 
+
+
+         /**
+     * @Route("/projets", name="users_projet")
+     */
+    public function getProjet(Request $request, PaginatorInterface $paginatorInterface)
+    {
+        $projet = new Projet();
+        $donnees = $this->getDoctrine()->getRepository(Projet::class)->findAll();
+        
+         $projet = $paginatorInterface->paginate(
+
+            $donnees, // les données de l'annonce
+            $request->query->getInt('page',1), // la page par defaut 1 
+            3 // nombre d'élement à afficher
+
+
+         );
+
+        return $this->render('users/projet.html.twig', [
+            'user_projet' => $projet,
+        ]);
+    }
+
 
 }

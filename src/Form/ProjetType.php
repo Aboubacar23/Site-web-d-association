@@ -34,6 +34,8 @@ class ProjetType extends AbstractType
                     ])
                 ]
             ])
+            ->add('DateAjout')
+            ->add('DateCreation')
             ->add('Type',EntityType::class,[
                 'class'=> Genre::class,
                 'choice_label'=> 'Nom'

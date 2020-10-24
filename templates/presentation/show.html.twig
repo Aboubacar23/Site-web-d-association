@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Presentation</h1>
 
-    <table class="table">
+    <table class="table table-bordered table-hover table-primary">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -19,8 +19,10 @@
     </table>
 
     <a href="{{ path('presentation_index') }}"><span class="btn btn-info">Retour</span></a>
-
+     <br>
+     <br>
     <a href="{{ path('presentation_edit', {'id': presentation.id}) }}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-
+     <br>
+     <br>
     {{ include('presentation/_delete_form.html.twig') }}
 {% endblock %}
