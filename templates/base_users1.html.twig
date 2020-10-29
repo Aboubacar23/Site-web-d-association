@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('Template_users/assets/img/favicon.ico')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('Template_users/assets/img/icon.jpg')}}">
 
 	<!-- CSS here -->
 	<link rel="stylesheet" href="{{asset('Template_users/assets/css/bootstrap.min.css')}}">
@@ -32,7 +32,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="{{asset('Template_users/assets/img/logo/loder.png')}}" alt="">
+                    <img src="{{asset('Template_users/assets/img/logo/123.jpg')}}" alt="">
                 </div>
             </div>
         </div>
@@ -92,7 +92,7 @@
                                                 </li>
                                                 <li><a href="{{path('users_projet')}}">Projet</a></li>
                                                 <li><a href="services.html">Partenaire</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="{{path('contact_new')}}">Contact</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -121,7 +121,7 @@
                 </div>
             </div>
         </div>
-        <!-- Header End -->
+        <!-- Header End --> 
     </header>
     <main>
         <!--? slider Area Start-->
@@ -211,36 +211,36 @@
                 <div class="row no-gutters">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-gallery text-center">
-                            <div class="gallery-img" style="background-image: url({{asset('Template_users/assets/img/gallery/gallery1.png);')}}'"></div>
+                            <div class="gallery-img" style="background-image: url({{asset('Template_users/assets/img/rouge.jpeg);')}}'"></div>
                             <div class="thumb-content-box">
                                 <div class="thumb-content">
-                                    <h3>Mechanical Engineering</h3>
-                                    <p>We collect and analyze information about your general usage of the website, products, services.</p>
-                                    <a href="services.html">Learn More</a>
+                                    <h3>Guinée Conakry </h3>
+                                    <p>Est un pays des jeunes  </p>
+                                    <a href="#">Learn More</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-gallery no-margin text-center">
-                            <div class="gallery-img" style="background-image: url({{asset('Template_users/assets/img/gallery/gallery2.png);')}}'"></div>
+                            <div class="gallery-img" style="background-image: url({{asset('Template_users/assets/img/jaune.jpeg);')}}'"></div>
                             <div class="thumb-content-box">
                                 <div class="thumb-content">
-                                    <h3>Mechanical Engineering</h3>
-                                    <p>We collect and analyze information about your general usage of the website, products, services.</p>
-                                    <a href="services.html">Learn More</a>
+                                    <h3>Guinée Conakry </h3>
+                                    <p>Est un pays des jeunes  </p>
+                                    <a href="#">Learn More</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-gallery text-center">
-                            <div class="gallery-img" style="background-image: url({{asset('Template_users/assets/img/gallery/gallery3.png);')}}'"></div>
+                            <div class="gallery-img" style="background-image: url({{asset('Template_users/assets/img/vert.png);')}}'"></div>
                             <div class="thumb-content-box">
                                 <div class="thumb-content">
-                                    <h3>Mechanical Engineering</h3>
-                                    <p>We collect and analyze information about your general usage of the website, products, services.</p>
-                                    <a href="services.html">Learn More</a>
+                                   <h3>Guinée Conakry </h3>
+                                    <p>Est un pays des jeunes  </p>
+                                    <a href="#">Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -249,9 +249,50 @@
             </div>
         </div>
         <!-- Gallery Area End -->
-        <!--? Categories Area Start -->
-        
-        <!-- Want To work End 2-->
+        <br>
+        <br>
+          <!--? Blog Area Start -->
+        <section class="home-blog-area pb-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="section-tittle mb-100">
+                            <span class="element">From News</span>
+                            <h2>News & Media center</h2>
+                            <p>We collect and analyze information about your general usage of the website products services and courses.</p>
+                            <a href="blog_details.html" class="all-btn">View All</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="home-blog-single mb-30">
+                            <div class="blog-img-cap">
+                                <div class="blog-img">
+                                    <img src="{{asset('Template_users/assets/img/gallery/home-blog1.png')}}" alt="">
+                                </div>
+                                <div class="blog-cap">
+                                    <p>22 Apr 2020</p>
+                                    <h3><a href="blog_details.html">We might track your usage patterns to see</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="home-blog-single mb-30">
+                            <div class="blog-img-cap">
+                                <div class="blog-img">
+                                    <img src="{{asset('Template_users/assets/img/gallery/home-blog2.png')}}" alt="">
+                                </div>
+                                <div class="blog-cap">
+                                    <p>22 Apr 2020</p>
+                                    <h3><a href="blog_details.html">The massive stadium screens at the MCG</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Area End -->
     </main>
     <footer>
         <!-- Footer Start-->
