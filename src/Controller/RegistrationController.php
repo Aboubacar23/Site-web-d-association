@@ -30,6 +30,23 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            $photo = $form->get('Photo')->getData();
+
+            if($photo)
+            {
+                $originalPhoto =pathinfo($photo->getClientOriginalName(),PATHINFO_FILENAME);
+                $phototName = $originalPhoto;
+                $newPhoto = $phototName.'.'.uniqid().'.'.$photo->guessExtension();
+                try {
+                    $photo->move(
+                        $this->getParameter('photo_admin'),
+                        $newPhoto
+                    );
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
