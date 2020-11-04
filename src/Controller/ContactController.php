@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/contact")
@@ -21,10 +22,20 @@ class ContactController extends AbstractController
      * 
      * @IsGranted("ROLE_ADMIN")
      */
-    public function index(ContactRepository $contactRepository): Response
+    public function index(ContactRepository $contactRepository,PaginatorInterface $paginatorInterface,request $request): Response
     {
+        $donnees = $contactRepository->findBy([],['id' => 'desc']);
+
+        $contact = $paginatorInterface->paginate(
+
+            $donnees, // les données de l'annonce
+            $request->query->getInt('page',1), // la page par defaut 1 
+            4 // nombre d'élement à afficher
+
+
+         );
         return $this->render('contact/index.html.twig', [
-            'contacts' => $contactRepository->findAll(),
+            'contacts' => $contact,
         ]);
     }
 

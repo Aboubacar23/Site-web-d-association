@@ -1,0 +1,48 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}index messages{% endblock %}
+
+{% block body %}
+    <h1>Les administrateurs</h1>
+     {% for flash_message in app.session.flashbag.get('success') %}
+                <div class="container alert alert-success" role="alert">
+                    {{ flash_message }}
+                </div>
+     {% endfor %}
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for admin in admins %}
+            <tr>
+                <td>{{ admin.id }}</td>
+                <td>{{ admin.Nom }}</td>
+                <td>{{ admin.Prenom }}</td>
+                <td>{{ admin.email }}</td>
+                <td><img src="{{asset('photo_admin/' ~ admin.Photo)}}" width="100px" height="70px;"></td>
+                
+                <td>
+                    <a href="{{ path('register_show', {'id': admin.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
+                  
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+     <a href="{{ path('app_register') }}" class="btn btn-success">Ajouter un Admin</a>
+
+   
+{% endblock %}
