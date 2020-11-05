@@ -79,7 +79,7 @@ class RegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="register_show", methods={"GET"})
+     * @Route("/admin/{id}", name="register_show", methods={"GET"})
      */
     public function show(Admin $admin): Response
     {

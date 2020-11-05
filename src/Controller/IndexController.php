@@ -100,7 +100,7 @@ class IndexController extends AbstractController
     public function getProjet(Request $request, PaginatorInterface $paginatorInterface)
     {
         $projet = new Projet();
-        $donnees = $this->getDoctrine()->getRepository(Projet::class)->findAll();
+        $donnees = $this->getDoctrine()->getRepository(Projet::class)->findBy([],['id'=>'desc']);
         
          $projet = $paginatorInterface->paginate(
 

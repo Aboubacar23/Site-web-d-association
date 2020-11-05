@@ -58,6 +58,7 @@ class ProjetController extends AbstractController
                  }
              }
              $projet->setDocument($newDocument);
+             $this->addFlash('success', 'le projet à été ajouter avec succes');
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($projet);
             $entityManager->flush();

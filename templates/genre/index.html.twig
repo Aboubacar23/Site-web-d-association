@@ -3,13 +3,17 @@
 {% block title %}Genre index{% endblock %}
 
 {% block body %}
-    <h1>La liste des genre de projet</h1>
-
+    <h1>La liste des genres de projet</h1>
+     {% for flash_message in app.session.flashbag.get('success') %}
+                <div class="container alert alert-success" role="alert">
+                    {{ flash_message }}
+                </div>
+     {% endfor %}
     <table class="table table-bordered table-hover table-primary">
         <thead>
             <tr class="table-secondary">
                 <th>Id</th>
-                <th>Nom</th>
+                <th>Nom</th> 
             
             </tr>
         </thead>
@@ -30,6 +34,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {{ knp_pagination_render( genres )}}
     <a href="{{ path('genre_new') }}" class="btn btn-success">Ajouter un nouveau</a>
 {% endblock %}

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Genre;
 use App\Form\GenreType;
 use App\Repository\GenreRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,10 +22,20 @@ class GenreController extends AbstractController
     /**
      * @Route("/", name="genre_index", methods={"GET"})
      */
-    public function index(GenreRepository $genreRepository): Response
+    public function index(GenreRepository $genreRepository, PaginatorInterface $paginatorInterface,Request $request): Response
     {
+        $donnees = $genreRepository->findAll();
+
+        $genre = $paginatorInterface->paginate(
+
+            $donnees, // les données de l'annonce
+            $request->query->getInt('page',1), // la page par defaut 1 
+            5 // nombre d'élement à afficher
+
+
+         );
         return $this->render('genre/index.html.twig', [
-            'genres' => $genreRepository->findAll(),
+            'genres' => $genre
         ]);
     }
 
@@ -38,6 +49,8 @@ class GenreController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->addFlash('success', 'le type à été ajouter avec succes');
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($genre);
             $entityManager->flush();

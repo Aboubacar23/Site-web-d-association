@@ -38,6 +38,8 @@ class NiveauController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->addFlash('success', 'le niveau à été ajouter avec succes');
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($niveau);
             $entityManager->flush();

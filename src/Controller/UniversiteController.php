@@ -38,6 +38,8 @@ class UniversiteController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->addFlash('success', 'le membre à été ajouter avec succes');
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($universite);
             $entityManager->flush();
