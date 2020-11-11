@@ -14,11 +14,9 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
-                <th> Date d'ajout</th>
-                <th>Description</th>
-                <th>Date Creation</th>
-                <th>Type Projet</th>
-                <th>Document</th>
+                <th>Type</th>
+                <th>Photo</th>
+               
            
             </tr>
         </thead>
@@ -27,11 +25,8 @@
             <tr>
                 <td>{{ projet.id }}</td>
                 <td>{{ projet.Nom }}</td>
-                <td>{{ projet.DateAjout ? projet.DateAjout|date('Y-m-d') : '' }}</td>
-                <td>{{ projet.Description }}</td>
-                <td>{{ projet.DateCreation ? projet.DateCreation|date('Y-m-d') }}</td>
                  <td>{{ projet.type.Nom }}</td>
-                <td><a href="{{asset('projet_documents/' ~ projet.Document)}}">{{ projet.Document }}</a></td>
+                <td><img src="{{asset('projet_photo/' ~ projet.Photo)}}" width="100px" height="70px;"></td>
                 <td>
                     <a href="{{ path('projet_show', {'id': projet.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a></td>
                 <td> <a href="{{ path('projet_edit', {'id': projet.id}) }}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>

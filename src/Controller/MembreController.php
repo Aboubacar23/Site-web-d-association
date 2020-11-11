@@ -71,7 +71,7 @@ class MembreController extends AbstractController
                      //throw $th;
                  }
              }
-
+ 
                 //uploader un fichier image
              if($photo)
              {

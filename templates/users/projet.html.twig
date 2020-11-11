@@ -56,7 +56,7 @@
                                     <a href="#" class="btn">Jeune de Guinée</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
                 <div class="header-bottom header-sticky">
@@ -165,13 +165,91 @@
                 </div>
             </div>
         </section>
+        <br>
+        <br>
+        <section class="blog_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mb-5 mb-lg-0">
+                     {% for projet in user_projet %}
+                        <div class="blog_left_sidebar">
+                            <div class="blog_details">
+                                     
+                                <h4>{{ projet.Nom }}</h4>
+                                <p>{{ projet.type.Nom }}</p>
+                                <span><a href="{{path('voir_projet',{'id': projet.id})}}" class="text-danger">
+                                Savoir plus</i></a></span>
+                          
+                            </div>
+                        </div>
+                        
+                         {% endfor %}
+                         
+                         {{ knp_pagination_render( user_projet )}}
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="blog_right_sidebar">
+                        <aside class="single_sidebar_widget post_category_widget">
+                            <h4 class="widget_title" style="color: #2d2d2d;">Category</h4>
+                            <ul class="list cat-list">
+                                <li>
+                                    <a href="#" class="d-flex">
+                                        <p>Resaurant food</p>
+                                        <p>(37)</p>
+                                    </a>
+                                     <a href="#" class="d-flex">
+                                        <p>Resaurant food</p>
+                                        <p>(37)</p>
+                                    </a>
+                                     <a href="#" class="d-flex">
+                                        <p>Resaurant food</p>
+                                        <p>(37)</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </aside>
+                        <aside class="single_sidebar_widget tag_cloud_widget">
+                        <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
+                        <ul class="list">
+                           <li>
+                              <a href="#">project</a>
+                           </li>
+                           <li>
+                              <a href="#">love</a>
+                           </li>
+                           <li>
+                              <a href="#">technology</a>
+                           </li>
+                           <li>
+                              <a href="#">travel</a>
+                           </li>
+                           <li>
+                              <a href="#">restaurant</a>
+                           </li>
+                           <li>
+                              <a href="#">life style</a>
+                           </li>
+                           <li>
+                              <a href="#">design</a>
+                           </li>
+                           <li>
+                              <a href="#">illustration</a>
+                           </li>
+                        </ul>
+                     </aside>      
+                     </div>  
+                    </div>
+                </div>
+            </div>        
+        </section>
         <!-- Want To work -->
+        {#  
         <section class="wantToWork-area gray-bg ">
             <div class="container">
                 <div class="wants-wrapper w-padding2">
                     <div class="row align-items-center justify-content-between">
                      {% for projet in user_projet %}
-                        <div class="col-xl-8 col-lg-9 col-md-8">
+                        <div class="col-xl-8 col-lg-9 col-md-8 main-menu d-none d-lg-block">
                             <div class="wantToWork-caption wantToWork-caption2">
                                 <h4>{{ projet.Nom }}</h4>
                                 <p>{{ projet.type.Nom }}</p>
@@ -192,6 +270,7 @@
                 </div>
             </div>
         </section>
+        #}
       
 <footer>
         <!-- Footer Start-->

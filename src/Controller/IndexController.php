@@ -106,7 +106,7 @@ class IndexController extends AbstractController
 
             $donnees, // les données de l'annonce
             $request->query->getInt('page',1), // la page par defaut 1 
-            5 // nombre d'élement à afficher
+            4 // nombre d'élement à afficher
 
 
          );

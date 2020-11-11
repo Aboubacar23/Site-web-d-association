@@ -2,8 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\MembreRepository;
+use App\Entity\Niveau;
+use App\Entity\Universite;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\MembreRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=MembreRepository::class)
@@ -69,6 +72,11 @@ class Membre
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 20
+     * )
      */
     private $Telephone;
 
@@ -76,6 +84,11 @@ class Membre
      * @ORM\ManyToOne(targetEntity=Universite::class)
      */
     private $Universite;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Specialite;
 
     public function getId(): ?int
     {
@@ -222,6 +235,18 @@ class Membre
     public function setUniversite(?Universite $Universite): self
     {
         $this->Universite = $Universite;
+
+        return $this;
+    }
+
+    public function getSpecialite(): ?string
+    {
+        return $this->Specialite;
+    }
+
+    public function setSpecialite(string $Specialite): self
+    {
+        $this->Specialite = $Specialite;
 
         return $this;
     }

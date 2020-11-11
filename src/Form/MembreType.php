@@ -10,7 +10,12 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class MembreType extends AbstractType
@@ -18,20 +23,23 @@ class MembreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Nom')
-            ->add('Prenom')
-            ->add('Date_anniversaire')
-            ->add('telephone')
-            ->add('Pays')
-            ->add('Email')
+            ->add('Nom',TextType::class)
+            ->add('Prenom',TextType::class)
+            ->add('Date_anniversaire',DateType::class,[
+                'widget' => 'single_text',
+            ])
+            ->add('telephone',NumberType::class)
+            ->add('Pays',CountryType::class)
+            ->add('Email',EmailType::class)
             ->add('Profil',TextareaType::class,[
                 'attr' => ['class' => 'tinymce'],
             ])
+            ->add('Specialite',TextType::class)
             ->add('Poste')
             ->add('Cv',FileType::class,[
                 'label'=>'Cv (pdf file)',
                 'mapped'=>false,
-                'required'=>false,
+                'required'=> true,
                 'constraints'=>[
                     new File([
                         'maxSize' => '5000000k',
@@ -47,7 +55,7 @@ class MembreType extends AbstractType
             ->add('Photo', FileType::class,[
                 'label'=>'Photo (image jpeg,jpg,png,)',
                 'mapped'=>false,
-                'required'=>false,
+                'required'=> true,
                 'constraints'=>[
                     new File([
                         'maxSize' => '5000000k',
@@ -65,7 +73,7 @@ class MembreType extends AbstractType
             ->add('Niveau',EntityType::class,[
                 'class'=> Niveau::class,
                 'choice_label'=> 'Libelle'
-            ])
+            ]) 
             ->add('Universite',EntityType::class,[
                 'class'=> Universite::class,
                 'choice_label' => 'Nom'

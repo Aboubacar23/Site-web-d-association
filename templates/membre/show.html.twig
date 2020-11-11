@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Membre</h1>
 
-    <table class="table">
+    <table class="table table-responsive">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -42,6 +42,10 @@
             <tr>
                 <th>Diplôme</th>
                 <td>{{ membre.Niveau.Libelle }}</td>
+            </tr>
+              <tr>
+                <th>Spécialité</th>
+                <td>{{ membre.Specialite}}</td>
             </tr>
              <tr>
                 <th>Universite</th>

@@ -2,8 +2,9 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Contact;
 use Faker\Factory;
+use App\Entity\Genre;
+use App\Entity\Contact;
 use App\Entity\Historique;
 use App\Entity\Presentation;
 use Doctrine\Persistence\ObjectManager;
@@ -38,6 +39,15 @@ class PresentaionFixtures extends Fixture
                     ->SetMessage($faker->realText($maxNbChars = 400, $indexSize = 4));
 
             $manager->persist($contact);
+            
+        }
+
+        for ($i=0; $i < 10; $i++) { 
+            $genre = new Genre();
+ 
+            $genre->setNom("Projet".$i);
+
+            $manager->persist($genre);
             
         }
 

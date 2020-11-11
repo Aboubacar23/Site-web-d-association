@@ -163,6 +163,7 @@
                                         <h4>Email : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Email }}</span></h4>
                                         <h4>Date anniversaire : <span class="blog-head" style="color: #2d2d2d;">{{ membre.DateAnniversaire ? membre.DateAnniversaire|date('Y-m-d') : '' }}</span></h4>
                                         <h4>Diplôme : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Niveau.Libelle }}</span></h4>
+                                        <h4>Spécialité : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Specialite }}</span></h4>
                                         <h4>Universite : <span class="blog-head" style="color: #2d2d2d;">{{ membre.Universite.nom }}</span></h4>
                                         <h4 class="blog-head"> Document cv:      <span><a href="{{asset('cv_membres/' ~ membre.Cv)}}" style="color: blue;">{{ membre.Cv }}</a></span></h4>
                                     </p>
