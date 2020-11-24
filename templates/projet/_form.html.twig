@@ -1,4 +1,22 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    <div class="row">
+        <div class="col-md-3">{{ form_row(form.Nom) }}</div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">{{ form_row(form.Type) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">{{ form_row(form.DateAjout) }}</div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">{{ form_row(form.DateCreation) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">{{ form_row(form.Document) }}</div>
+         <div class="col-md-3"></div>
+        <div class="col-md-3">{{ form_row(form.Photo) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">{{ form_row(form.Description) }}</div>
+    </div>
+    
     <button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>
 {{ form_end(form) }}

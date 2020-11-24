@@ -4,12 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Membre;
 use App\Form\MembreType;
+use App\Form\MembreRechercheType;
+use App\Repository\MembreRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 /**
@@ -18,15 +20,28 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
  * @IsGranted("ROLE_ADMIN")
  */
 class MembreController extends AbstractController
-{
-    /**
+{ 
+    /** 
      * @Route("/", name="membre_index", methods={"GET"})
      */
-    public function index(Request $request,PaginatorInterface $paginatorInterface): Response
+    public function index(Request $request,PaginatorInterface $paginatorInterface, MembreRepository $repo): Response
     {
+        $recherche = $this->createForm(MembreRechercheType::class);
+        $recherche->handleRequest($request);
         $membre = new Membre();
         $donnees = $this->getDoctrine()->getRepository(Membre::class)->findAll();
         
+        if($recherche->isSubmitted() && $recherche->isValid())
+        {
+            $nom = $recherche->getData()->getNom();
+            $donnees = $repo->search($nom);
+
+            if($donnees == null)
+            {
+                $this->addflash("erreur", "le nom que vous chercher  n'existe pas !");
+            }
+        }
+
          $membre = $paginatorInterface->paginate(
 
             $donnees, // les données de l'annonce
@@ -38,6 +53,7 @@ class MembreController extends AbstractController
 
         return $this->render('membre/index.html.twig', [
             'membres' => $membre,
+            'form' => $recherche->createView(),
         ]);
     }
 

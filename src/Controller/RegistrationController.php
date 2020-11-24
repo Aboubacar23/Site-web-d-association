@@ -5,12 +5,13 @@ namespace App\Controller;
 use App\Entity\Admin;
 use App\Form\RegistrationFormType;
 use App\Repository\AdminRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class RegistrationController extends AbstractController
 {
@@ -71,10 +72,17 @@ class RegistrationController extends AbstractController
      * @Route("/register_index", name="register_index", methods={"GET"})
      * 
      */
-    public function index(AdminRepository $adminRepository): Response
+    public function index(AdminRepository $adminRepository, Request $request, PaginatorInterface $paginatorInterface): Response
     {
+        $donnees = $adminRepository->findAll();
+        $admin = $paginatorInterface->paginate(
+            $donnees,
+            $request->query->getInt('page', 1),
+            3
+        );
+        
         return $this->render('registration/index.html.twig', [
-            'admins' => $adminRepository->findAll(),
+            'admins' => $admin,
         ]);
     }
 

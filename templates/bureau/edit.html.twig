@@ -1,0 +1,14 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Edit Bureau{% endblock %}
+
+{% block body %}
+    <h1>Modifier le membre du bureau</h1>
+
+    {{ include('bureau/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <br>
+    <a href="{{ path('bureau_index') }}"><span class="btn btn-info">Retour</span></a>
+    <br>
+    <br>
+    {{ include('bureau/_delete_form.html.twig') }}
+{% endblock %}

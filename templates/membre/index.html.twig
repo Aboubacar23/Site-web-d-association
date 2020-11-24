@@ -3,14 +3,26 @@
 {% block title %}Membre index{% endblock %}
 
 {% block body %}
-    <h1>la liste des membres</h1>
-     {% for flash_message in app.session.flashbag.get('success') %}
+    <div>
+        <h1>la liste des membres</h1>
+            {% for flash_message in app.session.flashbag.get('success') %}
                 <div class="container alert alert-success" role="alert">
                     {{ flash_message }}
                 </div>
-     {% endfor %}
-    <table class="table table-bordered table-hover table-primary">
-        <thead>
+            {% endfor %}
+    </div>
+    <div class="container">     
+        {{ form_start(form) }}
+            <div class="row">
+               <div class="col-md-3">{{ form_row(form.nom, {'label': " ", 'attr': {'placeholder': 'chercher un nom...'}}) }}</div>
+               <div class="col-md-2"><button class="btn btn-primary">rechercher</button></div>
+            </div>
+        {{ form_end(form) }}
+     
+    </div>
+    <div>
+    <table class="table">
+        <thead class="thead-light">
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
@@ -48,4 +60,6 @@
     </table>
         {{ knp_pagination_render( membres )}}
     <a href="{{ path('membre_new') }}" class="btn btn-success">Ajouter</a>
+    <a href="{{ path('membre_index') }}" class="btn btn-primary">Retour</a>
+    </div>
 {% endblock %}

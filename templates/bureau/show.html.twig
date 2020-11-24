@@ -1,0 +1,76 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Bureau{% endblock %}
+
+{% block body %}
+    <h1>Membre du bureau</h1>
+
+    <table class="table table-responsive">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bureau.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ bureau.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ bureau.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ bureau.Telephone}}</td>
+            </tr>
+            <tr>
+                <th>Date_anniversaire</th>
+                <td>{{ bureau.DateNaissance ? bureau.DateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Pays</th>
+                <td>{{ bureau.Pays }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ bureau.Email }}</td>
+            </tr>
+            <tr>
+                <th>Poste</th>
+                <td>{{ bureau.Poste }}</td>
+            </tr>
+            <tr>
+                <th>Diplôme</th>
+                <td>{{ bureau.Niveau.Libelle }}</td>
+            </tr>
+              <tr>
+                <th>Spécialité</th>
+                <td>{{ bureau.Specialite}}</td>
+            </tr>
+             <tr>
+                <th>Universite</th>
+                <td>{{ bureau.Universite.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Cv</th>
+                <td><a href="{{asset('cv_bureau/' ~ bureau.Cv)}}" >{{ bureau.Cv }}</a></td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><img src="{{asset('photo_bureau/' ~ bureau.Photo)}}" width="100px" height="70px;"></td>
+            </tr>
+            <tr>
+                <th>Profil</th>
+                <td>{{ bureau.Profil }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('bureau_index') }}"><span class="btn btn-info">Retour</span></a>
+     <br>
+     <br>
+    <a href="{{ path('bureau_edit', {'id': bureau.id}) }}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    <br>
+     <br>
+    {{ include('bureau/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Bureau index{% endblock %}
+
+{% block body %}
+    <h1>la liste des membres du bureau</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th> 
+                <th>Pays</th>
+                <th>DateNaissance</th>
+                <th>Cv</th>
+                <th>Photo</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for bureau in bureaus %}
+             <tr>
+                <td>{{ bureau.id }}</td>
+                <td>{{ bureau.Nom }}</td>
+                <td>{{ bureau.Prenom }}</td>
+                <td>{{ bureau.DateNaissance ? bureau.DateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ bureau.Pays }}</td>
+                <td>{{ bureau.Email }}</td>
+                <td><a href="{{asset('cv_membres/' ~ bureau.Cv)}}" >{{ bureau.Cv }}</a></td>
+                <td><img src="{{asset('photo_bureau/' ~ bureau.Photo)}}" width="100px" height="70px;"></td>
+               <td>
+                    <a href="{{ path('bureau_show', {'id': bureau.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                   <td> <a href="{{ path('bureau_edit', {'id': bureau.id}) }}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        {{ knp_pagination_render( bureaus )}}
+    <a href="{{ path('bureau_new') }}" class="btn btn-success">Ajouter</a>
+    <a href="{{ path('bureau_index') }}" class="btn btn-primary">Retour</a>
+{% endblock %}

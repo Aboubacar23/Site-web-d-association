@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Membre;
+use App\Entity\Bureau;
 use App\Entity\Niveau;
 use App\Entity\Universite;
 use Symfony\Component\Form\AbstractType;
@@ -16,26 +16,21 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class MembreType extends AbstractType
+class BureauType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('Nom',TextType::class)
+        $builder 
+            ->add('Nom',TextType::class) 
             ->add('Prenom',TextType::class)
-            ->add('Date_anniversaire',DateType::class,[
+            ->add('Telephone',NumberType::class)
+            ->add('Email',EmailType::class)
+            ->add('Pays',CountryType::class)
+            ->add('Poste')
+            ->add('DateNaissance',DateType::class,[
                 'widget' => 'single_text',
             ])
-            ->add('telephone',NumberType::class)
-            ->add('Pays',CountryType::class)
-            ->add('Email',EmailType::class)
-            ->add('Profil',TextareaType::class,[
-                'attr' => ['class' => 'tinymce'],
-            ])
-            ->add('Specialite',TextType::class)
-            ->add('Poste',TextType::class)
             ->add('Cv',FileType::class,[
                 'label'=>'Cv (pdf file)',
                 'mapped'=>false,
@@ -51,7 +46,7 @@ class MembreType extends AbstractType
                         
                     ])
                 ]
-            ]) 
+            ])
             ->add('Photo', FileType::class,[
                 'label'=>'Photo (image jpeg,jpg,png,)',
                 'mapped'=>false,
@@ -70,13 +65,15 @@ class MembreType extends AbstractType
                     ])
                 ]
             ])
+            ->add('Specialite',TextType::class)
+            ->add('Profil')
             ->add('Niveau',EntityType::class,[
                 'class'=> Niveau::class,
-                'choice_label'=> 'Libelle'
-            ]) 
+                'choice_label' => 'Libelle'
+            ])
             ->add('Universite',EntityType::class,[
-                'class'=> Universite::class,
-                'choice_label' => 'Nom'
+                'class'=>Universite::class,
+                'choice_label'=>'Nom'
             ])
         ;
     }
@@ -84,7 +81,7 @@ class MembreType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Membre::class,
+            'data_class' => Bureau::class,
         ]);
     }
 }

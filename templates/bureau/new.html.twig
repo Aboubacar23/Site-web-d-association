@@ -1,0 +1,11 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}ajouter Bureau{% endblock %}
+
+{% block body %}
+    <h1>Ajouter ub membre du bureau</h1>
+
+    {{ include('bureau/_form.html.twig') }}
+
+    <a href="{{ path('bureau_index') }}"><span class="btn btn-info">Retour</span></a>
+{% endblock %}
