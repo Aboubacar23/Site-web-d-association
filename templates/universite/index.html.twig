@@ -34,6 +34,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+        {{ knp_pagination_render( universites )}}
     <a href="{{ path('universite_new') }}" class="btn btn-success">Ajouter</a>
 {% endblock %}

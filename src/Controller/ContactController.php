@@ -19,8 +19,7 @@ class ContactController extends AbstractController
 {
     /**
      * @Route("/", name="contact_index", methods={"GET"})
-     * 
-     * @IsGranted("ROLE_ADMIN")
+     *
      */
     public function index(ContactRepository $contactRepository,PaginatorInterface $paginatorInterface,request $request): Response
     {
@@ -65,8 +64,6 @@ class ContactController extends AbstractController
 
     /**
      * @Route("/{id}", name="contact_show", methods={"GET"})
-     * 
-     * @IsGranted("ROLE_ADMIN")
      */
     public function show(Contact $contact): Response
     {
@@ -97,8 +94,6 @@ class ContactController extends AbstractController
 
     /**
      * @Route("/{id}", name="contact_delete", methods={"DELETE"})
-     * 
-     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Contact $contact): Response
     {

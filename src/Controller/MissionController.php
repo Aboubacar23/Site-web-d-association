@@ -13,8 +13,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/mission")
- * 
- * @IsGranted("ROLE_ADMIN")
  */
 class MissionController extends AbstractController
 {

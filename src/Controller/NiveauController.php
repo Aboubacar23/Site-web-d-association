@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Niveau;
 use App\Form\NiveauType;
 use App\Repository\NiveauRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,18 +14,23 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/niveau")
- * 
- * @IsGranted("ROLE_ADMIN")
  */
 class NiveauController extends AbstractController
 {
     /**
      * @Route("/", name="niveau_index", methods={"GET"})
      */
-    public function index(NiveauRepository $niveauRepository): Response
+    public function index(NiveauRepository $niveauRepository, Request $request, PaginatorInterface $paginatorInterface): Response
     {
+        $donnes = $niveauRepository->findAll();
+
+        $niveau = $paginatorInterface->paginate(
+            $donnes,
+            $request->query->getInt('page',1),
+            5
+        );
         return $this->render('niveau/index.html.twig', [
-            'niveaux' => $niveauRepository->findAll(),
+            'niveaux' => $niveau,
         ]);
     }
 

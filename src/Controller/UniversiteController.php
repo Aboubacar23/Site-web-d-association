@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Universite;
 use App\Form\UniversiteType;
 use App\Repository\UniversiteRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,18 +14,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/universite")
- * 
- * @IsGranted("ROLE_ADMIN")
  */
 class UniversiteController extends AbstractController
 {
     /**
      * @Route("/", name="universite_index", methods={"GET"})
      */
-    public function index(UniversiteRepository $universiteRepository): Response
+    public function index(UniversiteRepository $universiteRepository,Request $request, PaginatorInterface $paginatorInterface): Response
     {
+        $donnees = $universiteRepository->findAll();
+        $universite = $paginatorInterface->paginate(
+            $donnees,
+            $request->query->getInt('Page',1),
+            5
+        );
         return $this->render('universite/index.html.twig', [
-            'universites' => $universiteRepository->findAll(),
+            'universites' => $universite,
         ]);
     }
 

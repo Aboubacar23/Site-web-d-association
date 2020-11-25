@@ -36,9 +36,9 @@
             <tr>
                 <td colspan="5">la table est vide</td>
             </tr>
-        {% endfor %}
+        {% endfor %} 
         </tbody>
     </table>
-
+        {{ knp_pagination_render( projets ) }}
     <a href="{{ path('projet_new') }}" class="btn btn-success">Ajouter un nouveau</a>
 {% endblock %}

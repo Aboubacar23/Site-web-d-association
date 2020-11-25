@@ -4,11 +4,25 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    #h1 { color: blue;}
+    .titre1 { color: black;}
+    .heure { background: #189E4B; }
+    .container { }
 </style>
-
-<h1>Bienvenue Mr {{ app.user.username }} </h1>
-
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="titre1">Bienvenue Mr <span id="h1">{{ app.user.nom }} </span> sur la page d'aministration de la AJVEG</h3>
+            </div>
+            <div class="col-md-2">
+                <span><em>{{ "now"|date("m-d-Y  H:i") }}</em></span>
+            </div>
+            <div class="col-md-2">
+                
+            </div>
+        </div>
+    </div>
+    
+   
+ 
 {% endblock %}

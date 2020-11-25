@@ -3,8 +3,26 @@
 {% block title %}Bureau index{% endblock %}
 
 {% block body %}
-    <h1>la liste des membres du bureau</h1>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>La liste des membres du bureau</h1>
+                    {% for flash_message in app.session.flashbag.get('success') %}
+                        <div class="container alert alert-success" role="alert">
+                            {{ flash_message }}
+                        </div>
+                    {% endfor %}
+            </div>
+            <div class="col-md-4">    
+                {{ form_start(form) }}
+                     {{ form_row(form.nom, {'label': " ", 'attr': {'placeholder': 'chercher un nom...'}}) }}
+                    <button class="btn btn-primary">rechercher</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
     <table class="table">
         <thead>
             <tr>

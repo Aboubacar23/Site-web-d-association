@@ -14,8 +14,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/projet")
- * 
- * @IsGranted("ROLE_ADMIN")
  */
 class ProjetController extends AbstractController
 {
@@ -31,7 +29,7 @@ class ProjetController extends AbstractController
 
             $donnees, // les données de l'annonce
             $request->query->getInt('page',1), // la page par defaut 1 
-            5 // nombre d'élement à afficher
+            3 // nombre d'élement à afficher
 
 
          );

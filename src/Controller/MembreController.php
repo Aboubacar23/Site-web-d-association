@@ -16,8 +16,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/membre")
- * 
- * @IsGranted("ROLE_ADMIN")
  */
 class MembreController extends AbstractController
 { 
@@ -49,7 +47,7 @@ class MembreController extends AbstractController
             3 // nombre d'élement à afficher
 
 
-         );
+         ); 
 
         return $this->render('membre/index.html.twig', [
             'membres' => $membre,

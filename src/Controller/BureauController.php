@@ -4,12 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Bureau;
 use App\Form\BureauType;
+use App\Form\BureauRechercheType;
 use App\Repository\BureauRepository;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/bureau") 
@@ -21,7 +22,22 @@ class BureauController extends AbstractController
      */
     public function index(BureauRepository $bureauRepository, PaginatorInterface $paginatorInterface, Request $request): Response
     {
-        $donnees = $bureauRepository->findAll();
+        $recherche = $this->createForm(BureauRechercheType::class);
+        $recherche->handleRequest($request);
+        $bureau = new Bureau();
+        $donnees = $this->getDoctrine()->getRepository(Bureau::class)->findAll();
+
+        if($recherche->isSubmitted() && $recherche->isvalid())
+        {
+            $nom = $recherche->getData()->getNom();
+            $donnees = $bureauRepository->search($nom);
+
+            if($donnees == null)
+            {
+                $this->addflash("erreur", "le nom que vous chercher  n'existe pas !");
+            }
+        }
+       
         $bureau = $paginatorInterface->paginate(
             $donnees,
             $request->query->getInt('page',1),
@@ -29,6 +45,7 @@ class BureauController extends AbstractController
         );
         return $this->render('bureau/index.html.twig', [
             'bureaus' => $bureau,
+            'form'=> $recherche->createView(),
         ]);
     }
 

@@ -14,8 +14,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/genre")
- * 
- * @IsGranted("ROLE_ADMIN")
  */
 class GenreController extends AbstractController
 {

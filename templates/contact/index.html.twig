@@ -12,7 +12,6 @@
                 <th>Nom</th>
                 <th>Objet</th>
                 <th>Email</th>
-                <th>Message</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,7 +22,6 @@
                 <td>{{ contact.Nom }}</td>
                 <td>{{ contact.Objet }}</td>
                 <td>{{ contact.Email }}</td>
-                <td>{{ contact.Message }}</td>
                 <td>
                     <a href="{{ path('contact_show', {'id': contact.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>
                   

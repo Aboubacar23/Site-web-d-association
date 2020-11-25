@@ -47,4 +47,13 @@ class BureauRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function search($nom){
+        return $this->createQueryBuilder('Bureau')
+                    ->andwhere('Bureau.Nom LIKE :Nom')
+                    ->setParameter('Nom', '%'.$nom)
+                    ->getQuery()
+                    ->execute();
+                      
+    }
 }

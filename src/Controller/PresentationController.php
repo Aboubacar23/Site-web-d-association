@@ -13,8 +13,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/presentation")
- * 
- * @IsGranted("ROLE_ADMIN")
  */
 class PresentationController extends AbstractController
 {

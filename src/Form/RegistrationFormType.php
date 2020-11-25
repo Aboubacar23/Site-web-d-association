@@ -51,7 +51,7 @@ class RegistrationFormType extends AbstractType
             ->add('Photo',FileType::class,[
                 'label'=>'Photo (image jpeg,jpg,png,)',
                 'mapped'=>false,
-                'required'=>false,
+                'required'=>true,
                 'constraints'=>[
                     new File([
                         'maxSize' => '5000000k',

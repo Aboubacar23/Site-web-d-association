@@ -3,7 +3,7 @@
 {% block title %}Niveau index{% endblock %}
 
 {% block body %}
-    <h1>Les niveaus</h1>
+    <h1>Les niveaux</h1>
      {% for flash_message in app.session.flashbag.get('success') %}
                 <div class="container alert alert-success" role="alert">
                     {{ flash_message }}
@@ -34,7 +34,7 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
-
+    </table> 
+        {{ knp_pagination_render( niveaux )}}
     <a href="{{ path('niveau_new') }}" class="btn btn-success">Ajouter un nouveau</a>
 {% endblock %}

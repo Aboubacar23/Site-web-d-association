@@ -3,24 +3,26 @@
 {% block title %}Membre index{% endblock %}
 
 {% block body %}
-    <div>
-        <h1>la liste des membres</h1>
-            {% for flash_message in app.session.flashbag.get('success') %}
-                <div class="container alert alert-success" role="alert">
-                    {{ flash_message }}
-                </div>
-            {% endfor %}
-    </div>
-    <div class="container">     
-        {{ form_start(form) }}
-            <div class="row">
-               <div class="col-md-3">{{ form_row(form.nom, {'label': " ", 'attr': {'placeholder': 'chercher un nom...'}}) }}</div>
-               <div class="col-md-2"><button class="btn btn-primary">rechercher</button></div>
+   <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>La liste des membres</h1>
+                    {% for flash_message in app.session.flashbag.get('success') %}
+                        <div class="container alert alert-success" role="alert">
+                            {{ flash_message }}
+                        </div>
+                    {% endfor %}
             </div>
-        {{ form_end(form) }}
-     
+            <div class="col-md-4">    
+                {{ form_start(form) }}
+                     {{ form_row(form.nom, {'label': " ", 'attr': {'placeholder': 'chercher un nom...'}}) }}
+                    <button class="btn btn-primary">rechercher</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
     </div>
-    <div>
+    <br>
+    <br>
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -63,3 +65,4 @@
     <a href="{{ path('membre_index') }}" class="btn btn-primary">Retour</a>
     </div>
 {% endblock %}
+ 
