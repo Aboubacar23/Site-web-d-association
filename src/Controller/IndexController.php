@@ -6,6 +6,7 @@ use App\Entity\Membre;
 use App\Entity\Projet;
 use App\Entity\Historique;
 use App\Entity\Presentation;
+use App\Repository\BureauRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -124,6 +125,20 @@ class IndexController extends AbstractController
         return $this->render('users/show_projet.html.twig', [
             'projet' => $projet,
         ]);
+    }
+
+
+    /**
+     * @Route("/user/membre/bureau", name="liste_membre_bureau")
+    */
+    public function getMembreBureau(BureauRepository $bureauRepository)
+    {
+        $bureau = $bureauRepository->findAll();
+
+        return $this->render('users/membre_bureau.html.twig',[
+            'bureaux' => $bureau,
+        ]);
+
     }
 
 
