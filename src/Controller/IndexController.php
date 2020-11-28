@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Bureau;
 use App\Entity\Membre;
 use App\Entity\Projet;
 use App\Entity\Historique;
@@ -56,7 +57,7 @@ class IndexController extends AbstractController
 
             $donnees, // les données de l'annonce
             $request->query->getInt('page',1), // la page par defaut 1 
-            3 // nombre d'élement à afficher
+            9 // nombre d'élement à afficher
 
 
          );
@@ -127,18 +128,34 @@ class IndexController extends AbstractController
         ]);
     }
 
-
+ 
     /**
      * @Route("/user/membre/bureau", name="liste_membre_bureau")
     */
-    public function getMembreBureau(BureauRepository $bureauRepository)
+    public function getMembreBureau(BureauRepository $bureauRepository, Request $request, PaginatorInterface $paginatorInterface)
     {
-        $bureau = $bureauRepository->findAll();
+        $donnees = $bureauRepository->findAll();
 
+        $bureau = $paginatorInterface->paginate(
+            $donnees,
+            $request->query->getInt("page",1),
+            9
+        );
         return $this->render('users/membre_bureau.html.twig',[
             'bureaux' => $bureau,
         ]);
+ 
+    }
 
+
+     /**
+     * @Route("/{id}/afficher", name="get_membre_bureau", methods={"GET"})
+     */
+    public function showBureau(Bureau $bureau): Response
+    {
+        return $this->render('users/show_bureau.html.twig', [
+            'bureau' => $bureau,
+        ]);
     }
 
 

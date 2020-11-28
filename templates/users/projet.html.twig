@@ -87,7 +87,7 @@
                                                   <li><a href="#">Membre</a>
                                                     <ul class="submenu">
                                                         <li><a href="{{path('users_membre')}}">Membres</a></li>
-                                                        <li><a href="#">Bureau</a></li>
+                                                        <li><a href="{{path('liste_membre_bureau')}}">Bureau</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="active"><a href="{{path('users_projet')}}">Projet</a></li>
@@ -171,21 +171,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mb-5 mb-lg-0">
-                     {% for projet in user_projet %}
-                        <div class="blog_left_sidebar">
-                            <div class="blog_details">
-                                     
-                                <h4>{{ projet.Nom }}</h4>
-                                <p>{{ projet.type.Nom }}</p>
-                                <span><a href="{{path('voir_projet',{'id': projet.id})}}" class="text-danger">
-                                Savoir plus</i></a></span>
-                          
-                            </div>
-                        </div>
-                        
-                         {% endfor %}
+                        {% for projet in user_projet %}
+                            <div class="card md-4">
+                                <div class="card-body">
+                                    <h2 style="color: #0000FF;">{{ projet.Nom }}</h2>
+                                    <h3 style="color: #4D4D4D; font-style: oblique;">{{ projet.type.Nom }}</h3>
+                                    <span><a href="{{path('voir_projet',{'id': projet.id})}}" class="text-danger">
+                                    Savoir plus</i></a></span>
+                                </div>
+                            </div>     
+                            <br>                    
+                        {% endfor %}
                          
-                         {{ knp_pagination_render( user_projet )}}
+                        {{ knp_pagination_render( user_projet )}}
                     </div>
                     <div class="col-lg-3">
                         <div class="blog_right_sidebar">
@@ -242,35 +240,7 @@
                 </div>
             </div>        
         </section>
-        <!-- Want To work -->
-        {#  
-        <section class="wantToWork-area gray-bg ">
-            <div class="container">
-                <div class="wants-wrapper w-padding2">
-                    <div class="row align-items-center justify-content-between">
-                     {% for projet in user_projet %}
-                        <div class="col-xl-8 col-lg-9 col-md-8 main-menu d-none d-lg-block">
-                            <div class="wantToWork-caption wantToWork-caption2">
-                                <h4>{{ projet.Nom }}</h4>
-                                <p>{{ projet.type.Nom }}</p>
-                                <span><a href="{{path('voir_projet',{'id': projet.id})}}" class="text-danger">
-                                Savoir plus <i class="ti-arrow-right"></i></a></span>
-                            </div>
-                          
-                        </div>
-                        <div class="col-xl-2 col-lg-3 col-md-4">
-                           
-                        </div>
-                        <p>****************************************************************************************************************</p>
-                         {% endfor %}
-
-                    </div>
-                   
-                      {{ knp_pagination_render( user_projet )}}
-                </div>
-            </div>
-        </section>
-        #}
+        
       
 <footer>
         <!-- Footer Start-->

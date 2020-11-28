@@ -87,7 +87,7 @@
                                                   <li class="active"><a href="#">Membre</a>
                                                     <ul class="submenu">
                                                         <li><a href="{{path('users_membre')}}">Membres</a></li>
-                                                        <li><a href="#">Bureau</a></li>
+                                                        <li><a href="{{path('liste_membre_bureau')}}">Bureau</a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="{{path('users_projet')}}">Projet</a></li>
@@ -141,136 +141,95 @@
         <section class="blog_area single-post-area section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-1 posts-list">
-
-
-                     </div>
                     <div class="col-lg-8 posts-list">
-                        <h1 class="element"> Membres </h1>
-
-                      <br>
-                      <div class="media post_item">
-                        {% for membre in users %}
-                           
-                              <div class="container">
-                                <div class="cols">
-                                  <div class="col-md-3">
-                                      <div>
-                                        <img src="{{asset('photo_membres/' ~ membre.Photo)}}" 
-                                           width="130px" height="80px;">
+                        <h1 class="element"> Membres</h1>
+                                <br>
+                        <div class="media post_item">
+                            <div class="row">
+                                {% for membre in users %}
+                                    <div class="col-md-4">
+                                        <div class="card md-4">
+                                            <div class="card-body">
+                                                 <div class="text-primary">
+                                                    <img src="{{asset('photo_membres/' ~ membre.Photo)}}" 
+                                                            width="130px" height="80px;">
+                                                </div>
+                                                <h4 class="card-title" style="color: #A9A9A9;">{{ membre.nom }}</h4>
+                                                <h3 class="card-title" style="color: #A9A9A9;"> {{ membre.prenom }}</h3>
+                                                <h3 style="color: #00008B;">{{ membre.Poste }}</h3>
+                                                <p><a href="{{ path('afficher_user_membre', {'id': membre.id}) }}" class="all-btn">voir profil</a></p>
+                                               
+                                            </div>
                                         </div>
-                                   </div>
-                                  <div class="col-md-6">
-                                    <div class="media-body">
-                                      <h3 style="color: #A9A9A9;">{{ membre.Nom }}</h3>
-                                      <h3 style="color: #A9A9A9;">{{ membre.Prenom }}</h3>
-                                      <h3 style="color: #00008B;">{{ membre.Poste }}</h3>
-                                      <p><a href="{{ path('afficher_user_membre', {'id': membre.id}) }}" class="all-btn">voir profil</a></p>
-                                    </div>
-                                  </div>
-                              </div>
-                          
-                          </div>
-                             {% else %}
-           
-                          {% endfor %}
-                    </div>           
-               
-              {#
-                <td>{{ membre.DateAnniversaire ? membre.DateAnniversaire|date('Y-m-d') : '' }}</td>
-                <td><a href="{{asset('cv_membres/' ~ membre.Cv)}}" >{{ membre.Cv }}</a></td>
-               
-               <td>
-                    <a href="{{ path('membre_show', {'id': membre.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a></td>
-                </td>
-                #}
-           
-              
-       
-        
-       
-               <br>
-               {{ knp_pagination_render( users )}}
-
-              </div>
+                                        <br><br>
+                                        
+                                    </div> 
+                                {% endfor %}
+                                 {{ knp_pagination_render( users )}}
+                            </div>
+                        </div>           
+                    </div>
                     <div class="col-lg-3">
-                         <div class="blog_right_sidebar">
-                  
-                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title" style="color: #2d2d2d;">Category</h4>
-                        <ul class="list cat-list">
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Resaurant food</p>
-                                 <p>(37)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Travel news</p>
-                                 <p>(10)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Modern technology</p>
-                                 <p>(03)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Product</p>
-                                 <p>(11)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Inspiration</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Health Care</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                        </ul>
-                     </aside>
-                    
-                     <aside class="single_sidebar_widget tag_cloud_widget">
-                        <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
-                        <ul class="list">
-                           <li>
-                              <a href="#">project</a>
-                           </li>
-                           <li>
-                              <a href="#">love</a>
-                           </li>
-                           <li>
-                              <a href="#">technology</a>
-                           </li>
-                           <li>
-                              <a href="#">travel</a>
-                           </li>
-                           <li>
-                              <a href="#">restaurant</a>
-                           </li>
-                           <li>
-                              <a href="#">life style</a>
-                           </li>
-                           <li>
-                              <a href="#">design</a>
-                           </li>
-                           <li>
-                              <a href="#">illustration</a>
-                           </li>
-                        </ul>
-                     </aside>                    
+                        <div class="blog_right_sidebar">
+                            <aside class="single_sidebar_widget post_category_widget">
+                                <h4 class="widget_title" style="color: #2d2d2d;">Nos pays</h4>
+                                <ul class="list cat-list">
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Guinée</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Tunisie</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Maroc</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Canada</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Russie</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Turquie</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>France</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </aside>
+                            <aside class="single_sidebar_widget tag_cloud_widget">
+                                <h4 class="widget_title" style="color: #2d2d2d;">Nos métiers</h4>
+                                <ul class="list">
+                                    <li>
+                                        <a href="#">Ingénieur</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Géologue</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">technicien supérieur</a>
+                                    </li>
+                                </ul>
+                            </aside>               
+                        </div>
+                    </div>
                 </div>
-             </div>
-        </div>
-    </section>
+            </div>
+        </section>
     
 
 </main>

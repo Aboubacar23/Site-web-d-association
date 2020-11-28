@@ -76,15 +76,15 @@
                                         <nav> 
                                             <ul id="navigation">                                                                                          
                                                 <li><a href="{{path('index')}}">Accueil</a></li>
-                                                <li class="active"><a href="#">Presentation</a>
+                                                <li><a href="#">Presentation</a>
                                                     <ul class="submenu">
                                                         <li><a href="{{path('user_presentation')}}">Général</a></li>
-                                                        <li class="active"><a href="{{path('user_history')}}">Historique</a></li>
+                                                        <li><a href="{{path('user_history')}}">Historique</a></li>
                                                         <li><a href="{{asset('vision')}}">Objectifs</a></li>
                                                        
                                                     </ul>
                                                 </li>
-                                                  <li><a href="#">Membre</a>
+                                                  <li class="active"><a href="#">Membre</a>
                                                     <ul class="submenu">
                                                         <li><a href="{{path('users_membre')}}">Membres</a></li>
                                                         <li><a href="{{path('liste_membre_bureau')}}">Bureau</a></li>
@@ -123,69 +123,122 @@
         </div>
         <!-- Header End --> 
     </header>
+    <!-- main -->
     <main>
-    <div class="slider-area2 section-bg2" data-background="{{asset('Template_users/assets/img/1234.jpg')}}">
+         <div class="slider-area2 section-bg2" data-background="{{asset('Template_users/assets/img/123.jpeg')}}">
             <div class="slider-height2 d-flex align-items-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
-                            <div class="hero-cap hero-cap2">
-                                <h2>Historique</h2>
+                            <div class="hero-cap hero-cap2 text-center">
+                                <h2>Membre</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
-    <section class="about-low-area section-padding30">
+        </div>
+        <br>
+        <br>
+        <br>
+        <section class="blog_area">
             <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-xl-6 col-lg-6 col-md-10">
-                        <div class="about-caption mb-50">
-                            <!-- Section Tittle -->
-                            <div class="section-tittle mb-35">
-                                <span class="element">Histoire</span>
-                                <h2>AJVEG</h2>
-                            </div>
-                            {% for historique in historys %}
-            
-                
-                              <p>{{ historique.Libelle }} </p>
-                
-            
-                             {% else %}
-                             {% endfor %}
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <div class="experience">
-                                    <span>Jeunes</span>
-                                    <p>Motivé</p>
+                <div class="row">
+                    <div class="col-lg-8 mb-5 mb-lg-0">
+                        <div class="blog_left_sidebar">
+                            <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <img class="rounded-0" src="{{asset('photo_bureau/' ~ bureau.Photo)}}" 
+                                    height="300px;"  width="300;" alt="">
+                                    <a href="#" class="blog_item_date">
+                                        <h3>{{ bureau.Nom }}</h3>
+                                        <p>{{ bureau.Prenom }}</p>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <div class="experience">
-                                    <span>Histoire</span>
-                                    <p>D'une nouvelle génération</p>
+                                <div class="blog_details">
+                                    <p class="d-inline-block">
+                                        <h4>Telephone : <span class="blog-head" style="color: #2d2d2d;">{{ bureau.Telephone }}</span></h4>
+                                        <h4>Poste : <span class="blog-head" style="color: #2d2d2d;">{{ bureau.Poste }}</span></h4>
+                                        <h4>Pays : <span class="blog-head" style="color: #2d2d2d;">{{ bureau.Pays }}</span></h4>
+                                        <h4>Email : <span class="blog-head" style="color: #2d2d2d;">{{ bureau.Email }}</span></h4>
+                                        <h4>Date anniversaire : <span class="blog-head" style="color: #2d2d2d;">{{ bureau.DateNaissance ? bureau.DateNaissance|date('Y-m-d') : '' }}</span></h4>
+                                        <h4>Diplôme : <span class="blog-head" style="color: #2d2d2d;">{{ bureau.Niveau.Libelle }}</span></h4>
+                                        <h4>Spécialité : <span class="blog-head" style="color: #2d2d2d;">{{ bureau.Specialite }}</span></h4>
+                                        <h4>Universite : <span class="blog-head" style="color: #2d2d2d;">{{ bureau.Universite.nom }}</span></h4>
+                                        <h4 class="blog-head"> Document cv:      <span><a href="{{asset('cv_bureau/' ~ bureau.Cv)}}" style="color: blue;">{{ bureau.Cv }}</a></span></h4>
+                                    </p>
+                                    <p><span class="blog-head" style="color: #2d2d2d;">{{ bureau.Profil }}</span></p>
                                 </div>
-                            </div>
+                            </article>
                         </div>
                     </div>
-                    <div class="col-xl-5 col-lg-6 col-md-9 offset-md-1 offset-sm-1">
-                        <div class="about-right-cap">
-                            <div class="about-right-img">
-                                <img src="{{asset('Template_users/assets/img/histo_image.jpeg')}}" 
-                                 alt="" height="400px" width="100px">
-                            </div>
-                            <div class="img-cap">
-                                <span>Pays</span>
-                                <p>Guinée Conakry</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="col-lg-3">
+                         <div class="blog_right_sidebar">
+                  
+                     <aside class="single_sidebar_widget post_category_widget">
+                                <h4 class="widget_title" style="color: #2d2d2d;">Nos pays</h4>
+                                <ul class="list cat-list">
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Guinée</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Tunisie</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Maroc</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Canada</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Russie</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>Turquie</p>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="d-flex">
+                                        <p>France</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </aside>
+                            <aside class="single_sidebar_widget tag_cloud_widget">
+                                <h4 class="widget_title" style="color: #2d2d2d;">Nos métiers</h4>
+                                <ul class="list">
+                                    <li>
+                                        <a href="#">Ingénieur</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Géologue</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">technicien supérieur</a>
+                                    </li>
+                                </ul>
+                            </aside>         
                 </div>
-            </div>
+             </div>
+         </div>
+          </div>
+        
         </section>
+    </main>
+
+     <!-- end main -->
+
 <footer>
         <!-- Footer Start-->
         <div class="footer-area footer-padding">
@@ -345,6 +398,3 @@
     
     </body>
 </html>
-
-   
-
