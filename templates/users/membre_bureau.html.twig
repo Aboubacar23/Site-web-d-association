@@ -26,13 +26,13 @@
 	<link rel="stylesheet" href="{{asset('Template_users/assets/css/style.css')}}">
 </head>
 <body>
-    <!-- ? Preloader Start -->
+      <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="{{asset('Template_users/assets/img/logo/123.jpg')}}" alt="">
+                    <img src="{{asset('Template_users/assets/img/logo/logo_ajveg.png')}}" alt="">
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="{{asset('Template_users/assets/img/logo/123.jpg')}}" 
+                                    <a href="index.html"><img src="{{asset('Template_users/assets/img/logo/logo_ajveg.png')}}" 
                                     alt=""  width="150px" height="80px"></a>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                                                     </ul>
                                                 </li>
                                                 <li><a href="{{path('users_projet')}}">Projet</a></li>
-                                                <li><a href="#">Partenaire</a></li>
+                                                  {#<li><a href="#">Partenaire</a></li>#}
                                                 <li><a href="{{path('contact_new')}}">Contact</a></li>
                                             </ul>
                                         </nav>
@@ -152,7 +152,7 @@
                                             <div class="card-body">
                                                  <div class="text-primary">
                                                     <img src="{{asset('photo_bureau/' ~ bureau.Photo)}}" 
-                                                            width="130px" height="80px;">
+                                                            width="140px" height="140px;">
                                                 </div>
                                                 <h4 class="card-title" style="color: #A9A9A9;">{{ bureau.nom }}</h4>
                                                 <h3 class="card-title" style="color: #A9A9A9;"> {{ bureau.prenom }}</h3>
@@ -212,12 +212,36 @@
                             </aside>
                             <aside class="single_sidebar_widget tag_cloud_widget">
                                 <h4 class="widget_title" style="color: #2d2d2d;">Nos métiers</h4>
-                                <ul class="list">
+                                 <ul class="list">
                                     <li>
-                                        <a href="#">Ingénieur</a>
+                                        <a href="#">Ingénieurs en génie civil</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Ingénieurs en électricté</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Ingénieurs en génie minier</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Ingénieurs en mécanique</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Ingénieurs en biologie</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Ingénieurs en génie logiciel</a>
                                     </li>
                                     <li>
                                         <a href="#">Géologue</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Developpeurs web</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Avocats</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Sociologue</a>
                                     </li>
                                     <li>
                                         <a href="#">technicien supérieur</a>

@@ -26,13 +26,13 @@
 	<link rel="stylesheet" href="{{asset('Template_users/assets/css/style.css')}}">
 </head>
 <body>
-    <!-- ? Preloader Start -->
+     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="{{asset('Template_users/assets/img/logo/123.jpg')}}" alt="">
+                    <img src="{{asset('Template_users/assets/img/logo/logo_ajveg.png')}}" alt="">
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="{{asset('Template_users/assets/img/logo/123.jpg')}}" 
+                                    <a href="index.html"><img src="{{asset('Template_users/assets/img/logo/logo_ajveg.png')}}" 
                                     alt=""  width="150px" height="80px"></a>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                                                     </ul>
                                                 </li>
                                                 <li class="active"><a href="{{path('users_projet')}}">Projet</a></li>
-                                                <li><a href="#">Partenaire</a></li>
+                                                    {#<li><a href="#">Partenaire</a></li>#}
                                                 <li><a href="{{path('contact_new')}}">Contact</a></li>
                                             </ul>
                                         </nav>
@@ -152,7 +152,7 @@
                                         <h4>Date d'ajout : <span class="blog-head" style="color: #2d2d2d;">{{ projet.DateAjout ? projet.DateAjout|date('Y-m-d') }}</span></h4>
                                         <h4>Date de creation : <span class="blog-head" style="color: #2d2d2d;">{{ projet.DateCreation ? projet.DateCreation|date('Y-m-d')  }}</span></h4>
                                         <h4>Type : <span class="blog-head" style="color: #2d2d2d;">{{ projet.type.Nom }}</span></h4>
-                                        <h4 class="blog-head"> Document cv: <span><a href="{{asset('projet_documents/' ~ projet.Document)}}" style="color: blue;">{{ projet.Document}}</a></span></h4>
+                                        <h4 class="blog-head"> Document du projet :  <span><a href="{{asset('projet_documents/' ~ projet.Document)}}" style="color: blue;">{{ projet.Document}}</a></span></h4>
                                     </p>
                                     <p><span class="blog-head" style="color: #2d2d2d;">{{ projet.Description }}</span></p>
                                 </div>
@@ -162,73 +162,45 @@
                          <div class="blog_right_sidebar">
                   
                      <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title" style="color: #2d2d2d;">Category</h4>
-                        <ul class="list cat-list">
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Resaurant food</p>
-                                 <p>(37)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Travel news</p>
-                                 <p>(10)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Modern technology</p>
-                                 <p>(03)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Product</p>
-                                 <p>(11)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Inspiration</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Health Care</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                        </ul>
+                        <h4 class="widget_title" style="color: #2d2d2d;">Projet</h4>
+                            <ul class="list cat-list">
+                                <li>
+                                    <a href="#" class="d-flex">
+                                        <p>Grand projet</p>
+                                    </a>
+                                     <a href="#" class="d-flex">
+                                        <p>Projet moyen</p>
+                                    </a>
+                                     <a href="#" class="d-flex">
+                                        <p>Petit projet</p>
+                                    </a>
+                                </li>
+                            </ul>
                      </aside>
                     
                      <aside class="single_sidebar_widget tag_cloud_widget">
-                        <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
+                        <h4 class="widget_title" style="color: #2d2d2d;">catégorie</h4>
                         <ul class="list">
                            <li>
-                              <a href="#">project</a>
+                              <a href="#">Transport</a>
                            </li>
                            <li>
-                              <a href="#">love</a>
+                              <a href="#">Informatique</a>
                            </li>
                            <li>
-                              <a href="#">technology</a>
+                              <a href="#">Commerce</a>
                            </li>
                            <li>
-                              <a href="#">travel</a>
+                              <a href="#">Voyage</a>
                            </li>
                            <li>
                               <a href="#">restaurant</a>
                            </li>
                            <li>
-                              <a href="#">life style</a>
+                              <a href="#">Production</a>
                            </li>
-                           <li>
-                              <a href="#">design</a>
-                           </li>
-                           <li>
-                              <a href="#">illustration</a>
+                           <li> 
+                              <a href="#">Educatif</a>
                            </li>
                         </ul>
                      </aside>                    

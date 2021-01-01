@@ -26,13 +26,13 @@
 	<link rel="stylesheet" href="{{asset('Template_users/assets/css/style.css')}}">
 </head>
 <body>
-    <!-- ? Preloader Start -->
+      <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="{{asset('Template_users/assets/img/logo/123.jpg')}}" alt="">
+                    <img src="{{asset('Template_users/assets/img/logo/logo_ajveg.png')}}" alt="">
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
                                     <a href="#" class="btn">Jeune de Guinée</a>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
                 <div class="header-bottom header-sticky">
@@ -65,7 +65,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="{{asset('Template_users/assets/img/logo/123.jpg')}}" 
+                                    <a href="index.html"><img src="{{asset('Template_users/assets/img/logo/logo_ajveg.png')}}" 
                                     alt=""  width="150px" height="80px"></a>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                                                     </ul>
                                                 </li>
                                                 <li class="active"><a href="{{path('users_projet')}}">Projet</a></li>
-                                                <li><a href="#">Partenaire</a></li>
+                                                      {#<li><a href="#">Partenaire</a></li>#}
                                                 <li><a href="{{path('contact_new')}}">Contact</a></li>
                                             </ul>
                                         </nav>
@@ -150,7 +150,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-5 col-lg-5 col-md-8 col-sm-10">
+                   {#
+                         <div class="col-xl-5 col-lg-5 col-md-8 col-sm-10">
                        <div class="experience-wrapper d-flex f">
                             <div class="experience experience2">
                                 <span></span>
@@ -162,6 +163,7 @@
                             </div>
                        </div>
                     </div>
+                   #}
                 </div>
             </div>
         </section>
@@ -188,50 +190,44 @@
                     <div class="col-lg-3">
                         <div class="blog_right_sidebar">
                         <aside class="single_sidebar_widget post_category_widget">
-                            <h4 class="widget_title" style="color: #2d2d2d;">Category</h4>
+                            <h4 class="widget_title" style="color: #2d2d2d;">Projet</h4>
                             <ul class="list cat-list">
                                 <li>
                                     <a href="#" class="d-flex">
-                                        <p>Resaurant food</p>
-                                        <p>(37)</p>
+                                        <p>Grand projet</p>
                                     </a>
                                      <a href="#" class="d-flex">
-                                        <p>Resaurant food</p>
-                                        <p>(37)</p>
+                                        <p>Projet moyen</p>
                                     </a>
                                      <a href="#" class="d-flex">
-                                        <p>Resaurant food</p>
-                                        <p>(37)</p>
+                                        <p>Petit projet</p>
                                     </a>
                                 </li>
                             </ul>
                         </aside>
                         <aside class="single_sidebar_widget tag_cloud_widget">
-                        <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
+                        <h4 class="widget_title" style="color: #2d2d2d;">catégorie</h4>
                         <ul class="list">
                            <li>
-                              <a href="#">project</a>
+                              <a href="#">Transport</a>
                            </li>
                            <li>
-                              <a href="#">love</a>
+                              <a href="#">Informatique</a>
                            </li>
                            <li>
-                              <a href="#">technology</a>
+                              <a href="#">Commerce</a>
                            </li>
                            <li>
-                              <a href="#">travel</a>
+                              <a href="#">Voyage</a>
                            </li>
                            <li>
                               <a href="#">restaurant</a>
                            </li>
                            <li>
-                              <a href="#">life style</a>
+                              <a href="#">Production</a>
                            </li>
-                           <li>
-                              <a href="#">design</a>
-                           </li>
-                           <li>
-                              <a href="#">illustration</a>
+                           <li> 
+                              <a href="#">Educatif</a>
                            </li>
                         </ul>
                      </aside>      
