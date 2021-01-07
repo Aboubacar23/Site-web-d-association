@@ -14,6 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/universite")
+ * @IsGranted("ROLE_USER")
  */
 class UniversiteController extends AbstractController
 {
@@ -44,7 +45,7 @@ class UniversiteController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $this->addFlash('success', 'le membre à été ajouter avec succes');
+            $this->addFlash("success", "l'universite à été ajouter avec succes");
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($universite);
             $entityManager->flush();

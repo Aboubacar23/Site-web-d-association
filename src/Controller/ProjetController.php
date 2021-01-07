@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/projet")
+ * @IsGranted("ROLE_USER")
  */
 class ProjetController extends AbstractController
 {

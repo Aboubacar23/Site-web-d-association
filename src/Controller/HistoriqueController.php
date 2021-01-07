@@ -13,6 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/historique")
+ * @IsGranted("ROLE_USER")
  */
 class HistoriqueController extends AbstractController
 {

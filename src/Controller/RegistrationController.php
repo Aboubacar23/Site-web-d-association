@@ -53,6 +53,7 @@ class RegistrationController extends AbstractController
             }
             $this->addFlash('success', 'le membre à été ajouter avec succes');
             $user->setPhoto($newPhoto);
+            $user->setRoles(['ROLE_USER']);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -88,6 +89,7 @@ class RegistrationController extends AbstractController
 
     /**
      * @Route("/admin/{id}", name="register_show", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function show(Admin $admin): Response
     {
@@ -99,6 +101,7 @@ class RegistrationController extends AbstractController
  
      /**
      * @Route("/{id}", name="register_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Admin $admin): Response
     {

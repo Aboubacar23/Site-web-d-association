@@ -16,6 +16,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/membre")
+ * 
+ * @IsGranted("ROLE_USER")
  */
 class MembreController extends AbstractController
 { 

@@ -14,6 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/niveau")
+ * @IsGranted("ROLE_USER")
  */
 class NiveauController extends AbstractController
 {
