@@ -1,0 +1,12 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}New Reunion{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle réunion</h1>
+
+    {{ include('reunion/_form.html.twig') }}
+
+    <br>
+    <a class="btn btn-primary" href="{{ path('reunion_index') }}">Retour</a>
+{% endblock %}

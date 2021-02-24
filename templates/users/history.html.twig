@@ -147,7 +147,8 @@
                                 <span class="element">Histoire</span>
                                 <h2>AJVEG</h2>
                             </div>
-                            {% for historique in historys %}
+                            <div>
+                                {% for historique in historys %}
             
                 
                               <p>{{ historique.Libelle }} </p>
@@ -155,6 +156,7 @@
             
                              {% else %}
                              {% endfor %}
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">

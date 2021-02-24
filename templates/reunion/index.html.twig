@@ -1,0 +1,42 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Reunion index{% endblock %}
+
+{% block body %}
+    <h1>La liste des réunions</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>DateReunion</th>
+                <th>HeureDebut</th>
+                <th>HeureFin</th>
+                <th>Description</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reunion in reunions %}
+            <tr>
+                <td>{{ reunion.id }}</td>
+                <td>{{ reunion.Titre }}</td>
+                <td>{{ reunion.DateReunion ? reunion.DateReunion|date('Y-m-d') : '' }}</td>
+                <td>{{ reunion.HeureDebut ? reunion.HeureDebut|date('H:i:s') : '' }}</td>
+                <td>{{ reunion.DateFin ? reunion.DateFin|date('H:i:s') : '' }}</td>
+                <td>{{ reunion.Description }}</td>
+                <td><img src="{{asset('photo_reunion/' ~ reunion.Photo)}}" width="100px" height="70px;"></td>
+                <td><a href="{{ path('reunion_show', {'id': reunion.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                <td><a href="{{ path('reunion_edit', {'id': reunion.id}) }}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">La table est vide</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('reunion_new') }}" class="btn btn-primary">Ajouter réunion</a>
+{% endblock %}

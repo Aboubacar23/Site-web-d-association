@@ -98,7 +98,7 @@ class RegistrationController extends AbstractController
         ]);
     }
 
- 
+  
      /**
      * @Route("/{id}", name="register_delete", methods={"DELETE"})
      * @IsGranted("ROLE_ADMIN")
@@ -107,6 +107,8 @@ class RegistrationController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$admin->getId(), $request->request->get('_token'))) {      
            
+            $photo = $admin->getPhoto();
+            unlink($this->getparameter('photo_admin').'/'.$photo);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($admin);
             $entityManager->flush();

@@ -11,6 +11,7 @@ parameters:
     photo_projet_directory: '%kernel.project_dir%/public/projet_photo'
     cv_directory_bureau: '%kernel.project_dir%/public/cv_bureau'
     photo_directory_bureau: '%kernel.project_dir%/public/photo_bureau'
+    photo_directory_reunion: '%kernel.project_dir%/public/photo_reunion'
     
 services:
     # default configuration for services in *this* file

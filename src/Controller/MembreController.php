@@ -34,7 +34,7 @@ class MembreController extends AbstractController
         if($recherche->isSubmitted() && $recherche->isValid())
         {
             $nom = $recherche->getData()->getNom();
-            $donnees = $repo->search($nom);
+            $donnees = $repo->search($nom); 
 
             if($donnees == null)
             {
