@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Reunion;
 use App\Form\ReunionType;
 use App\Repository\ReunionRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/reunion")
@@ -18,10 +19,22 @@ class ReunionController extends AbstractController
     /**
      * @Route("/", name="reunion_index", methods={"GET"})
      */
-    public function index(ReunionRepository $reunionRepository): Response
+    public function index(ReunionRepository $reunionRepository, PaginatorInterface $paginatorInterface, Request $request): Response
     {
+        $reunion = new Reunion();
+        $donnees = $reunionRepository->findBy([],['id'=>'desc']);
+        
+         $reunion = $paginatorInterface->paginate( 
+
+            $donnees, // les données de l'annonce
+            $request->query->getInt('page',1), // la page par defaut 1 
+            3 // nombre d'élement à afficher
+
+
+         );
+
         return $this->render('reunion/index.html.twig', [
-            'reunions' => $reunionRepository->findAll(),
+            'reunions' => $reunion,
         ]);
     }
 

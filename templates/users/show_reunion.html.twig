@@ -123,7 +123,7 @@
         </div>
         <!-- Header End --> 
     </header>
-    <main>
+    <main> 
         <!--? slider Area Start-->
         <div class="slider-area position-relative">
             <div class="slider-active">
@@ -165,39 +165,61 @@
         <!--? About 1 Start-->
         <section class="about-low-area section-padding40">
             <div class="container">
-            <div class="sectionn-title mb-35">
-                    <span class="element">Accueil</span>
-                </div>
-                 {% for reunion in user_reunion %}
                 <div class="row justify-content-between">
                     <div class="col-xl-6 col-lg-6 col-md-10">
                         <div class="about-caption mb-50">
                             <!-- Section Tittle -->
                             <div class="section-tittle mb-35">
-                                <h3>{{ reunion.titre }}</h3>
+                                <h2>Reunion</h2>
                             </div>
-                            <div><p>{{ reunion.Objet }}</p></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <div class="experience">
-                                    <span><a href="{{path('voir_reunion',{'id': reunion.id})}}">voir plus</a></span>
-                                </div>
+                            <div><p>mail (abréviation de Google Mail)(couramment prononcé /ʒemɛjl/ en français européen, en anglais américain /ˈd͡ʒiˌmeɪl/1) est un service de messagerie électronique, gratuit pour les particuliers, proposé par Google. Les messages reçus sur un compte Gmail peuvent être lus via un client de</p>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="col-xl-5 col-lg-6 col-md-9 offset-md-1 offset-sm-1">
                         <div class="about-right-cap">
                             <div class="about-right-img">
-                                <img src="{{asset('photo_reunion/' ~ reunion.Photo)}}" width="200 px;" height="200px;">
+                                <img src="{{asset('Template_users/assets/img/blog/single_blog_2.png')}}" alt="" height="200" width="2000">
                             </div>
                         </div>
-                    </div>                 
+                    </div>
+                    <p>******************************************************************************************************************************************************************</p>
+                     <div class="col-xl-6 col-lg-6 col-md-10">
+                        <div class="about-caption mb-50">
+                            <!-- Section Tittle -->
+                            <div class="section-tittle mb-35">
+                                <h2>Reunion</h2>
+                            </div>
+                            <div><p>mail (abréviation de Google Mail)(couramment prononcé /ʒemɛjl/ en français européen, en anglais américain /ˈd͡ʒiˌmeɪl/1) est un service de messagerie électronique, gratuit pour les particuliers, proposé par Google. Les messages reçus sur un compte Gmail peuvent être lus via un client de</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-6 col-md-9 offset-md-1 offset-sm-1">
+                        <div class="about-right-cap">
+                            <div class="about-right-img">
+                                <img src="{{asset('Template_users/assets/img/blog/single_blog_2.png')}}" alt="" height="200" width="2000">
+                            </div>
+                        </div>
+                    </div>
+                     <p>******************************************************************************************************************************************************************</p>
+                     <div class="col-xl-6 col-lg-6 col-md-10">
+                        <div class="about-caption mb-50">
+                            <!-- Section Tittle -->
+                            <div class="section-tittle mb-35">
+                                <h2>Reunion</h2>
+                            </div>
+                            <div><p>mail (abréviation de Google Mail)(couramment prononcé /ʒemɛjl/ en français européen, en anglais américain /ˈd͡ʒiˌmeɪl/1) est un service de messagerie électronique, gratuit pour les particuliers, proposé par Google. Les messages reçus sur un compte Gmail peuvent être lus via un client de</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-6 col-md-9 offset-md-1 offset-sm-1">
+                        <div class="about-right-cap">
+                            <div class="about-right-img">
+                                <img src="{{asset('Template_users/assets/img/blog/single_blog_2.png')}}" alt="" height="200" width="2000">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <br>
-                   {% endfor %}
-                        {{ knp_pagination_render( user_reunion ) }}
-
             </div>
         </section>
         <!-- About  End-->

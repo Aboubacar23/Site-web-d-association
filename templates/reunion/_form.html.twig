@@ -1,17 +1,18 @@
     {{ form_start(form) }}
     <div class="row">
-        <div class="col-md-3">{{ form_row(form.Titre) }}</div>
-        <div class="col-md-3">{{ form_row(form.Photo) }}</div>
+        <div class="col-md-4">{{ form_row(form.Titre) }}</div>
+        <div class="col-md-4">{{ form_row(form.Objet) }}</div>
     </div>
      <div class="row"> 
+        <div class="col-md-4">{{ form_row(form.Photo) }}</div>
         <div class="col-md-4">{{ form_row(form.DateReunion) }}</div>
     </div>
      <div class="row">
-        <div class="col-md-3">{{ form_row(form.HeureDebut) }}</div>
-        <div class="col-md-3">{{ form_row(form.DateFin) }}</div>
+        <div class="col-md-4">{{ form_row(form.HeureDebut) }}</div>
+        <div class="col-md-4">{{ form_row(form.DateFin) }}</div>
     </div>
      <div class="row">
-        <div class="col-md-6">{{ form_row(form.Description) }}</div>
+        <div class="col-md-8">{{ form_row(form.Description) }}</div>
         
     </div>
     <button class="btn btn-success">{{ button_label|default('Ajouter') }}</button>

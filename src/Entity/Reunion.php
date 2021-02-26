@@ -47,6 +47,11 @@ class Reunion
      */
     private $Photo;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $Objet;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class Reunion
     public function setPhoto(string $Photo): self
     {
         $this->Photo = $Photo;
+
+        return $this;
+    }
+
+    public function getObjet(): ?string
+    {
+        return $this->Objet;
+    }
+
+    public function setObjet(string $Objet): self
+    {
+        $this->Objet = $Objet;
 
         return $this;
     }

@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Bureau;
 use App\Entity\Membre;
 use App\Entity\Projet;
+use App\Entity\Reunion;
+use App\Entity\Admin;
 use App\Entity\Historique;
 use App\Entity\Presentation;
 use App\Repository\BureauRepository;
@@ -19,10 +21,22 @@ class IndexController extends AbstractController
     /**
      * @Route("/index", name="index")
      */
-    public function index()
+    public function index(Request $request, PaginatorInterface $paginatorInterface)
     {
+        $reunion = new Reunion();
+         $donnees = $this->getDoctrine()->getRepository(Reunion::class)->findBy([],['id'=>'desc']);
+         
+          $reunion = $paginatorInterface->paginate(
+ 
+             $donnees, // les données de l'annonce
+             $request->query->getInt('page',1), // la page par defaut 1 
+             3 // nombre d'élement à afficher
+ 
+ 
+          );
+
         return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController',
+            'user_reunion' => $reunion,
         ]);
     }
 
@@ -159,4 +173,29 @@ class IndexController extends AbstractController
     }
 
 
+    //afficher la liste par details des reunions
+
+      /**
+     * @Route("/{id}/voir", name="voir_reunion", methods={"GET"})
+     */
+     public function getReunionFindby(Reunion $reunion): Response
+     {
+         return $this->render('users/show_reunion.html.twig', [
+             'reunion' => $reunion,
+         ]);
+     }
+ 
+
+     //afficher profil
+
+      /**
+     * @Route("/{id}/profil", name="profil", methods={"GET"})
+     */
+     public function getReunion(Admin $admin): Response{
+
+        return $this->render('profil/index.html.twig', [
+            'profil'=>$admin,
+        ]);
+     }
 }
+ 

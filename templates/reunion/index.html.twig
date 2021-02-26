@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
+                <th>Objet</th>
                 <th>DateReunion</th>
                 <th>HeureDebut</th>
                 <th>HeureFin</th>
@@ -26,7 +27,6 @@
                 <td>{{ reunion.DateReunion ? reunion.DateReunion|date('Y-m-d') : '' }}</td>
                 <td>{{ reunion.HeureDebut ? reunion.HeureDebut|date('H:i:s') : '' }}</td>
                 <td>{{ reunion.DateFin ? reunion.DateFin|date('H:i:s') : '' }}</td>
-                <td>{{ reunion.Description }}</td>
                 <td><img src="{{asset('photo_reunion/' ~ reunion.Photo)}}" width="100px" height="70px;"></td>
                 <td><a href="{{ path('reunion_show', {'id': reunion.id}) }}" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a></td>
                 <td><a href="{{ path('reunion_edit', {'id': reunion.id}) }}" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
@@ -38,5 +38,6 @@
         {% endfor %}
         </tbody>
     </table>
+    {{ knp_pagination_render( reunions ) }}
     <a href="{{ path('reunion_new') }}" class="btn btn-primary">Ajouter réunion</a>
 {% endblock %}

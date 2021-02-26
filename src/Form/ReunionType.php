@@ -17,6 +17,7 @@ class ReunionType extends AbstractType
             ->add('Titre')
             ->add('DateReunion')
             ->add('HeureDebut')
+            ->add('Objet')
             ->add('DateFin')
             ->add('Description')
             ->add('Photo',FileType::class,[

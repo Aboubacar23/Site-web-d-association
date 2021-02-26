@@ -45,7 +45,7 @@
           <li><a class="logout" href="{{ path('app_logout') }}">Se deconnecter</a></li>
         </ul>
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="#">Profil</a></li>
+          <li><a class="logout" href="{{ path('profil', {'id': app.user.id })}}">Profil</a></li>
         </ul>
       </div>
     </header>
@@ -130,7 +130,7 @@
         </ul>
         <!-- sidebar menu end-->
       </div>
-    </aside>
+    </aside> 
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT

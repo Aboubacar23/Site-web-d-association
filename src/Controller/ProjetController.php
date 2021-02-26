@@ -26,7 +26,7 @@ class ProjetController extends AbstractController
         $projet = new Projet();
         $donnees = $projetRepository->findBy([],['id'=>'desc']);
         
-         $projet = $paginatorInterface->paginate(
+         $projet = $paginatorInterface->paginate( 
 
             $donnees, // les données de l'annonce
             $request->query->getInt('page',1), // la page par defaut 1 
