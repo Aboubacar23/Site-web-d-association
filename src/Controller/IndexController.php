@@ -18,6 +18,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class IndexController extends AbstractController
 {
+    // la liste des reunions 
+
     /**
      * @Route("/index", name="index")
      */
@@ -176,26 +178,18 @@ class IndexController extends AbstractController
     //afficher la liste par details des reunions
 
       /**
-     * @Route("/{id}/voir", name="voir_reunion", methods={"GET"})
+     * @Route("/{id}/reunion", name="voir_reunion", methods={"GET"})
      */
-     public function getReunionFindby(Reunion $reunion): Response
+     public function getReunionFindby($id)
      {
+         $reunion = new Reunion();
+
+         $reunion = $this->getDoctrine()->getRepository(Reunion::class)->find($id);
+
          return $this->render('users/show_reunion.html.twig', [
              'reunion' => $reunion,
-         ]);
+         ]); 
      }
  
-
-     //afficher profil
-
-      /**
-     * @Route("/{id}/profil", name="profil", methods={"GET"})
-     */
-     public function getReunion(Admin $admin): Response{
-
-        return $this->render('profil/index.html.twig', [
-            'profil'=>$admin,
-        ]);
-     }
 }
  

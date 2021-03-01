@@ -13,8 +13,9 @@ class HistoriqueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Libelle',TextareaType::class,[
-                'attr' => ['class' => 'tinymce'],
+            ->add('Libelle',TextareaType::class ,[
+                'attr' => ['class' => 'tinymce',
+                           'required'=>'false'],
             ])
         ;
     }

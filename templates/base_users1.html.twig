@@ -181,7 +181,7 @@
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <div class="experience">
-                                    <span><a href="{{path('voir_reunion',{'id': reunion.id})}}">voir plus</a></span>
+                                <p><a href="{{path('voir_reunion',{'id': reunion.id})}}" style="color: red;">voir plus</a></p>      
                                 </div>
                             </div>
                         </div>
@@ -192,7 +192,7 @@
                                 <img src="{{asset('photo_reunion/' ~ reunion.Photo)}}" width="200 px;" height="200px;">
                             </div>
                         </div>
-                    </div>                 
+                    </div>           
                 </div>
                 <br>
                    {% endfor %}
