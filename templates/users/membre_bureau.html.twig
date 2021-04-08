@@ -163,6 +163,10 @@
                                         </div>
                                         <br><br>
                                     </div> 
+                                     {% else %}
+            
+                                    <p colspan="3"  class="text-danger">la table membre du bureau est vide</p>
+           
                                 {% endfor %}
                                 {{ knp_pagination_render( bureaux )}}
                             </div>

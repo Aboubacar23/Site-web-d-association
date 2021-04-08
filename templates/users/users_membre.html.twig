@@ -164,6 +164,10 @@
                                         <br><br>
                                         
                                     </div> 
+                                     {% else %}
+            
+                                    <p colspan="3"  class="text-danger">la table membre est vide</p>
+           
                                 {% endfor %}
                                  {{ knp_pagination_render( users )}}
                             </div>

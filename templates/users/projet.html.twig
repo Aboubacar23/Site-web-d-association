@@ -182,8 +182,10 @@
                                     Savoir plus</i></a></span>
                                 </div>
                             </div>     
-                            <br>                    
-                        {% endfor %}
+                            <br> 
+                             {% else %}
+                                <p colspan="3" class="text-danger">Pas de projet pour le moment !</p>
+                            {% endfor %}
                          
                         {{ knp_pagination_render( user_projet )}}
                     </div>

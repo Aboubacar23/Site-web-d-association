@@ -29,6 +29,10 @@ class AppFixtures extends Fixture
         $admin->setRoles(['ROLE_ADMIN']);
         $admin->setNom('Conde');
         $admin->setPrenom('Aboubacar Sidiki Condé');
+        $admin->setPassword($this->passwordEncoder->encodePassword($admin,'Aboubacar23'));
+        $admin->setPhoto('photo');
+
+        
         $manager->persist($admin);
         $manager->flush();
     }
