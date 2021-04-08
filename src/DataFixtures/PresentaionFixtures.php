@@ -4,8 +4,10 @@ namespace App\DataFixtures;
 
 use Faker\Factory;
 use App\Entity\Genre;
+use App\Entity\Niveau;
 use App\Entity\Contact;
 use App\Entity\Historique;
+use App\Entity\Universite;
 use App\Entity\Presentation;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -50,6 +52,21 @@ class PresentaionFixtures extends Fixture
             $manager->persist($genre);
             
         }
+
+        for ($i=1; $i < 10; $i++) {
+            $universite = new Universite();
+
+            $universite->setNom('Universite '.$i);
+            $manager->persist($universite);
+        }
+
+        for ($i=1; $i < 10; $i++) {
+            $niveau = new Niveau();
+
+            $niveau->setLibelle("Niveau d'etude ".$i);
+            $manager->persist($niveau);
+        }
+
 
         $manager->flush();
        

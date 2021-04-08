@@ -3,7 +3,7 @@
 {% block title %}Projet index{% endblock %}
 
 {% block body %}
-    <h1>La liste des projets</h1>
+    <h1 class="text-success center">La liste des projets</h1>
      {% for flash_message in app.session.flashbag.get('success') %}
                 <div class="container alert alert-success" role="alert">
                     {{ flash_message }}

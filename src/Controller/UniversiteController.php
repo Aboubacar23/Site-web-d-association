@@ -45,7 +45,7 @@ class UniversiteController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $this->addFlash("success", "l'universite à été ajouter avec succes");
+            $this->addFlash("success", "l'université a été ajouter avec succes");
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($universite);
             $entityManager->flush();

@@ -13,9 +13,10 @@
         <div class="row">
             <div class="col-md-8">
                 <h3 class="titre1">Bienvenue Mr <span id="h1">{{ app.user.nom }} </span> sur la page d'aministration de la AJVEG</h3>
+                <img src="{{asset("Template_user/img/logo_ajveg.png")}}" class="img-responsive"/>
             </div>
-            <div class="col-md-2">
-                <span><em>{{ "now"|date("m-d-Y  H:i") }}</em></span>
+            <div class="col-md-4">
+                <h3 class="titre1">{{ "now"|date("m-d-Y  H:i") }}</h3>
             </div>
             <div class="col-md-2">
                 

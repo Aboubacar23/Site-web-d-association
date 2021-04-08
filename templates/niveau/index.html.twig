@@ -3,7 +3,7 @@
 {% block title %}Niveau index{% endblock %}
 
 {% block body %}
-    <h1>Les niveaux</h1>
+    <h1 class="text-success center">Les niveaux d'études</h1>
      {% for flash_message in app.session.flashbag.get('success') %}
                 <div class="container alert alert-success" role="alert">
                     {{ flash_message }}
