@@ -18,7 +18,7 @@ class PresentaionFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-
+        /**
         $faker = Factory::create('fr_FR');
         // $product = new Product();
         // $manager->persist($product);
@@ -70,5 +70,6 @@ class PresentaionFixtures extends Fixture
 
         $manager->flush();
        
+        */
     }
 }
