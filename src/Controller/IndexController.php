@@ -21,7 +21,7 @@ class IndexController extends AbstractController
     // la liste des reunions 
 
     /**
-     * @Route("/index", name="index")
+     * @Route("/", name="index")
      */
     public function index(Request $request, PaginatorInterface $paginatorInterface)
     {

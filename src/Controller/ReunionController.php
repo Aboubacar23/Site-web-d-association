@@ -29,7 +29,7 @@ class ReunionController extends AbstractController
             $donnees, // les données de l'annonce
             $request->query->getInt('page',1), // la page par defaut 1 
             3 // nombre d'élement à afficher
-
+ 
 
          );
 
