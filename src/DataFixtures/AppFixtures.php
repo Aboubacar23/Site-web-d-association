@@ -25,11 +25,11 @@ class AppFixtures extends Fixture
         // $manager->persist($product);
 
         $admin = new Admin();
-        $admin ->setEmail('admin@gmail.com');
+        $admin ->setEmail('aboubacarsidikiconde23@gmail.com');
         $admin->setRoles(['ROLE_ADMIN']);
         $admin->setNom('Conde');
         $admin->setPrenom('Aboubacar Sidiki Condé');
-        $admin->setPassword($this->passwordEncoder->encodePassword($admin,'Admin'));
+        $admin->setPassword($this->passwordEncoder->encodePassword($admin,'Aboubacar23'));
         $admin->setPhoto('photo');
 
         
